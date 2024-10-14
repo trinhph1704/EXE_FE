@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url("/SWD392_FE/fe/src/assets/SG TOWN.jpg"); /* Đường dẫn đến hình ảnh */
+  background-size: cover; /* Để hình ảnh phủ đầy toàn bộ màn hình */
+  background-position: center; /* Để căn giữa hình ảnh */
+  background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+}
+
+#root {
+  width: 100%;
+  padding: 0 0.6rem;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 1.37rem;
+  font-weight: 600;
+  margin-bottom: 1.87rem;
+}
+
+.social-login {
+  display: flex;
+  gap: 1.31rem;
+}
+
+.social-button {
+  display: flex;
+  width: 100%;
+  height: px; /* Thay đổi chiều cao thành 45px */
+  gap: 0.5rem; /* Điều chỉnh khoảng cách giữa các phần tử bên trong nút */
+  cursor: pointer;
+  font-size: 0.9rem; /* Giảm kích thước chữ */
+  font-weight: 500;
+  padding: 0.5rem; /* Điều chỉnh padding để giảm kích thước tổng thể */
+  align-items: center;
+  border-radius: 0.25rem; /* Giảm độ cong của viền */
+  justify-content: center;
+  background: #f9f8ff;
+  border: 1px solid #d5cbff;
+  transition: 0.3s ease;
+}
+
+.social-button:hover {
+  background: #f1eff9;
+  border-color: #5f41e4;
+}
+
+.separator {
+  margin: 1.5rem 0; /* Space around the separator */
+  text-align: center; /* Center the text */
+  position: relative; /* Establish positioning context */
+}
+
+.separator span {
+  background: #fff; /* Background color for the text */
+  z-index: 1; /* Ensure it appears above the lines */
+  padding: 0 0.5rem; /* Horizontal padding for better appearance */
+  font-size: 1.06rem; /* Font size */
+  font-weight: 500; /* Font weight */
+  position: relative; /* Ensure the z-index works */
+}
+
+.separator::before,
+.separator::after {
+  position: absolute; /* Position the lines absolutely */
+  content: ""; /* Content is empty for pseudo-elements */
+  top: 50%; /* Center vertically */
+  width: 100%; /* Full width */
+  height: 1px; /* Height of the lines */
+  background: #bfb3f2; /* Color of the lines */
+}
+
+.separator::before {
+  left: 0; /* Align left line */
+}
+
+.separator::after {
+  right: 0; /* Align right line */
+  width: calc(100% - 2rem); /* Adjust width to allow for the text */
+}
+
+.login-form {
+  width: 100%; /* Ensure full width for the form */
+}
+
+.input-wrapper {
+  position: relative; /* Establish positioning context for the icon */
+  margin-bottom: 1.5rem; /* Space below each input */
+}
+
+.input-field {
+  height: 54px; /* Height of the input */
+  width: 100%; /* Full width */
+  outline: none; /* Remove outline */
+  font-size: 1.06rem; /* Font size */
+  border-radius: 0.31rem; /* Rounded corners */
+  border: 1px solid #bfb3f2; /* Border style */
+  padding: 0 1.25rem 0 3.12rem; /* Padding for input */
+  transition: border-color 0.3s ease; /* Transition for border color */
+}
+
+.input-field:focus {
+  border-color: #5f41e4; /* Change border color on focus */
+}
+
+.input-wrapper i {
+  color: #a395e0; /* Color of the icon */
+  position: absolute; /* Absolute positioning for the icon */
+  left: 12px; /* Adjust as necessary */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Correct vertical alignment */
+  pointer-events: none; /* Prevent interaction with the icon */
+}
+
+.forgot-password-link {
+  display: block; /* Giữ nguyên để đảm bảo nó là một khối */
+  text-align: center; /* Căn giữa văn bản */
+  margin: 1rem 0; /* Giữ khoảng cách trên và dưới */
+  color: #5f41e4; /* Màu sắc của liên kết */
+  font-size: 0.9rem; /* Kích thước chữ cho liên kết */
+  text-decoration: none; /* Bỏ gạch chân */
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline; /* Gạch chân khi hover */
+}
+
+.signup-text {
+  text-align: center; /* Center the signup text */
+  margin-top: 1.5rem; /* Space above */
+}
+
+.signup-text a {
+  color: #5f41e4; /* Color for the signup link */
+  text-decoration: none; /* Remove underline */
+}
+
+.signup-text a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.login-button {
+  width: 100%; /* Full width for the login button */
+  height: 54px; /* Height of the button */
+  background: #5f41e4; /* Background color */
+  color: #fff; /* Text color */
+  border: none; /* No border */
+  border-radius: 0.31rem; /* Rounded corners */
+  font-size: 1rem; /* Font size */
+  font-weight: 500; /* Font weight */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s ease; /* Transition for background color */
+}
+
+.login-button:hover {
+  background: #4d36b6; /* Darker shade on hover */
+}
