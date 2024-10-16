@@ -1,0 +1,50 @@
+#ItemDetails {
+  max-width: 800px; /* Set a maximum width for the details view */
+  margin: 20px auto; /* Center the container */
+  padding: 20px; /* Add padding */
+  border: 1px solid #ccc; /* Light border around the item */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+#ItemDetails h1 {
+  font-size: 24px; /* Larger font size for the title */
+  margin-bottom: 10px; /* Space below the title */
+  color: #333; /* Dark color for better readability */
+}
+
+#ItemDetails img {
+  width: 100%; /* Full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for images */
+  margin-bottom: 15px; /* Space below the image */
+}
+
+#ItemDetails p {
+  font-size: 16px; /* Standard font size for paragraphs */
+  line-height: 1.6; /* Improved line height for readability */
+  color: #555; /* Slightly lighter text color */
+}
+
+#ItemDetails .product-price {
+  font-size: 18px; /* Slightly larger font for price */
+  font-weight: bold; /* Bold weight for emphasis */
+  margin-top: 10px; /* Space above the price */
+  color: #e74c3c; /* A contrasting color for the price */
+}
+
+#ItemDetails .back-link {
+  display: inline-block; /* Allow margin and padding */
+  margin-top: 20px; /* Space above the back link */
+  padding: 10px 15px; /* Padding around the link */
+  background-color: #3498db; /* Blue background */
+  color: white; /* White text color */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+#ItemDetails .back-link:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
