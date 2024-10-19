@@ -1,0 +1,139 @@
+#Cart-Container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Cart-Container-01 {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h5 {
+  font-weight: bold;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+/* Cải thiện giao diện của sản phẩm */
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control {
+  margin: 0 10px;
+}
+
+.quantity-control .fa {
+  font-size: 20px;
+  color: #007bff; /* Màu cho icon tăng giảm số lượng */
+}
+
+.quantity-control .fa:hover {
+  color: #0056b3; /* Màu hover cho icon */
+}
+
+.quantity-control .fa[style*="color: #ccc"] {
+  cursor: not-allowed; /* Hiển thị cursor không cho phép */
+}
+
+.MDBCard {
+  border-radius: 10px; /* Bo góc cho thẻ sản phẩm */
+}
+
+.MDBCardBody {
+  border-radius: 10px; /* Bo góc cho body của thẻ */
+}
+
+/* Cải thiện giao diện cho nút xóa */
+a {
+  color: #cecece; /* Màu cho icon xóa */
+}
+
+a:hover {
+  color: #ff4d4d; /* Màu hover cho icon xóa */
+}
+
+a[style*="color: #ccc"] {
+  pointer-events: none; /* Vô hiệu hóa sự kiện click cho icon xóa khi không sử dụng được */
+}
+
+.Cart-Container-02 {
+  width: 900px; /* Chiều rộng cố định */
+  margin: 0 auto; /* Căn giữa toàn bộ container */
+  padding: 20px; /* Khoảng cách padding cho container */
+}
+
+.additional-products {
+  text-align: center; /* Căn giữa tiêu đề và nội dung */
+}
+
+.additional-products h5 {
+  margin-bottom: 20px; /* Khoảng cách giữa tiêu đề và sản phẩm */
+}
+
+.product-row {
+  display: flex;
+  justify-content: flex-start; /* Căn bắt đầu từ trái */
+  white-space: nowrap; /* Ngăn các sản phẩm xuống dòng */
+  overflow-x: auto; /* Cho phép cuộn ngang khi có nhiều sản phẩm */
+}
+
+.product-card {
+  background-color: whitesmoke; /* Màu nền cho thẻ sản phẩm */
+  border-radius: 10px; /* Bo góc cho thẻ */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  margin: 10px 20px; /* Khoảng cách giữa các thẻ: 10px trên dưới, 20px hai bên */
+  width: 250px; /* Chiều rộng cố định cho thẻ sản phẩm */
+  transition: transform 0.3s ease; /* Hiệu ứng phóng to khi hover */
+  display: inline-block; /* Hiển thị các thẻ sản phẩm theo chiều ngang */
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+.product-image {
+  border-radius: 10px 10px 0 0; /* Bo góc cho hình ảnh phía trên */
+  width: 100%; /* Chiều rộng đầy đủ của hình ảnh */
+  height: 200px; /* Chiều cao cố định cho hình ảnh */
+  object-fit: cover; /* Đảm bảo hình ảnh vừa vặn và không bị biến dạng */
+}
+
+.product-body {
+  padding: 15px; /* Khoảng cách padding cho phần nội dung bên trong thẻ */
+}
+
+.product-name {
+  font-size: 1.25rem; /* Kích thước chữ cho tên sản phẩm */
+  margin-bottom: 10px; /* Khoảng cách dưới cho tên sản phẩm */
+}
+
+.product-description {
+  font-size: 0.875rem; /* Kích thước chữ cho mô tả sản phẩm */
+  margin-bottom: 10px; /* Khoảng cách dưới cho mô tả */
+}
+
+.product-price {
+  font-size: 1.125rem; /* Kích thước chữ cho giá sản phẩm */
+  color: #007bff; /* Màu xanh cho giá sản phẩm */
+  margin-bottom: 15px; /* Khoảng cách dưới cho giá */
+}
+
+.add-to-cart {
+  background-color: #007bff; /* Màu nền xanh cho nút */
+  color: #fff; /* Màu chữ trắng */
+  border: none; /* Không viền */
+  border-radius: 5px; /* Bo góc cho nút */
+  padding: 10px 20px; /* Khoảng cách padding bên trong nút */
+  cursor: pointer; /* Đổi con trỏ chuột thành pointer khi hover */
+  transition: background-color 0.3s ease; /* Hiệu ứng mượt mà khi hover */
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+}
