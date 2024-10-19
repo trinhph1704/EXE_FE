@@ -1,5 +1,6 @@
 import React from "react";
-import "./../ListItemPage/ListItemPage.css"; // Consider moving styles to the specific component if needed
+import "./../ListItemPage/ListItemPage.css";
+
 import Header from "../../../Components/Items/Header/Header";
 import Footer from "../../../Components/Items/Footer/Footer";
 import ItemDetails from "../../../Components/User/ItemDetails/ItemDetails";

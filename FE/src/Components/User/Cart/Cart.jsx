@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./../Cart/Cart.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+
+import { IoIosArrowDropleft } from "react-icons/io";
+import { IoIosArrowDropright } from "react-icons/io";
+
 
 import {
     MDBBtn,
@@ -11,6 +15,7 @@ import {
     MDBCardImage,
     MDBCol,
     MDBContainer,
+
     MDBIcon,
     MDBInput,
     MDBRow,
@@ -107,8 +112,8 @@ const formatCurrency = (value) => {
 };
 
 export default function Cart() {
-
     const [cartItems, setCartItems] = useState(fakeData);
+    const [sortOption, setSortOption] = useState(""); // State cho lựa chọn sắp xếp
 
     const increaseQuantity = (id) => {
         setCartItems(cartItems.map(item =>
@@ -126,20 +131,33 @@ export default function Cart() {
         setCartItems(cartItems.filter(item => item.id !== id));
     };
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const productsPerPage = 3; // Số sản phẩm hiển thị mỗi lần (có thể chỉnh tùy theo kích thước màn hình)
+    const productRowRef = useRef(null);
 
-    const handlePrevClick = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - productsPerPage);
+    const scrollProductRow = (direction) => {
+        const scrollAmount = 300;
+        if (direction === 'left') {
+            productRowRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else if (direction === 'right') {
+            productRowRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
-    const handleNextClick = () => {
-        if (currentIndex < additionalProducts.length - productsPerPage) {
-            setCurrentIndex(currentIndex + productsPerPage);
+    // Hàm sắp xếp sản phẩm
+    const sortProducts = (items) => {
+        switch (sortOption) {
+            case "price-asc":
+                return [...items].sort((a, b) => a.price - b.price); // Giá tăng dần
+            case "price-desc":
+                return [...items].sort((a, b) => b.price - a.price); // Giá giảm dần
+            case "name-asc":
+                return [...items].sort((a, b) => a.name.localeCompare(b.name)); // Tên A-Z
+            default:
+                return items; // Mặc định không sắp xếp
         }
     };
+
+    // Sản phẩm sau khi sắp xếp
+    const sortedCartItems = sortProducts(cartItems);
 
     return (
         <div id="Cart-Container">
@@ -166,18 +184,22 @@ export default function Cart() {
                                                         <p className="mb-0">You have {cartItems.length} items in your cart</p>
                                                     </div>
                                                     <div>
-                                                        <p>
-                                                            <span className="text-muted">Sort by:</span>
-                                                            <a href="#!" className="text-body">
-                                                                price
-                                                                <MDBIcon fas icon="angle-down mt-1" />
-                                                            </a>
-                                                        </p>
+                                                        {/* Dropdown chọn sắp xếp */}
+                                                        <select
+                                                            value={sortOption}
+                                                            onChange={(e) => setSortOption(e.target.value)}
+                                                            className="form-select"
+                                                        >
+                                                            <option value="">Sort</option>
+                                                            <option value="price-asc">Price: Low to High</option>
+                                                            <option value="price-desc">Price: High to Low</option>
+                                                            <option value="name-asc">Name: A-Z</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 
                                                 {/* Danh sách sản phẩm */}
-                                                {cartItems.map(item => (
+                                                {sortedCartItems.map(item => (
                                                     <MDBCard className="mb-3" key={item.id}>
                                                         <MDBCardBody>
                                                             <div className="d-flex justify-content-between">
@@ -251,42 +273,14 @@ export default function Cart() {
                                                         </a>
 
                                                         <form className="mt-4">
-                                                            <MDBInput className="mb-4" label="Cardholder's Name" type="text" size="lg" placeholder="Cardholder's Name" contrast />
+                                                            <MDBInput className="mb-4" label="Cardholder's Name" type="text" size="lg" contrast />
                                                             <MDBInput className="mb-4" label="Card Number" type="text" size="lg" minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast />
-
-                                                            <MDBRow className="mb-4">
-                                                                <MDBCol md="6">
-                                                                    <MDBInput className="mb-4" label="Expiration" type="text" size="lg" minLength="7" maxLength="7" placeholder="MM/YYYY" contrast />
-                                                                </MDBCol>
-                                                                <MDBCol md="6">
-                                                                    <MDBInput className="mb-4" label="Cvv" type="text" size="lg" minLength="3" maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast />
-                                                                </MDBCol>
-                                                            </MDBRow>
+                                                            <MDBInput className="mb-4" label="Expiration" type="text" size="lg" placeholder="MM/YYYY" contrast />
+                                                            <MDBInput className="mb-4" label="CVV" type="password" size="lg" minLength="3" maxLength="3" placeholder="CVV" contrast />
+                                                            <MDBBtn type="submit" block size="lg" className="mb-4" style={{ backgroundColor: "#00897b" }}>
+                                                                Pay
+                                                            </MDBBtn>
                                                         </form>
-
-                                                        <hr />
-
-                                                        <div className="d-flex justify-content-between">
-                                                            <p className="mb-2">Subtotal</p>
-                                                            <p className="mb-2">{formatCurrency(cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0))}</p>
-                                                        </div>
-
-                                                        <div className="d-flex justify-content-between">
-                                                            <p className="mb-2">Shipping</p>
-                                                            <p className="mb-2">20.000₫</p>
-                                                        </div>
-
-                                                        <div className="d-flex justify-content-between">
-                                                            <p className="mb-2">Total(Incl. taxes)</p>
-                                                            <p className="mb-2">{formatCurrency(cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0) + 20000)}</p>
-                                                        </div>
-
-                                                        <MDBBtn color="info" block size="lg">
-                                                            <div className="d-flex justify-content-between">
-                                                                <span>{formatCurrency(cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0) + 20000)}</span>
-                                                                <span>Checkout</span>
-                                                            </div>
-                                                        </MDBBtn>
                                                     </MDBCardBody>
                                                 </MDBCard>
                                             </MDBCol>
@@ -301,28 +295,28 @@ export default function Cart() {
 
             <div className="Cart-Container-02">
                 <div className="additional-products">
-                    <h5 className="mb-4">Các sản phẩm khác bạn có thể thích:</h5>
-                    <div className="carousel-container">
-                        <button className="carousel-btn prev-btn" onClick={handlePrevClick}>❮</button>
-                        <div className="product-row">
-                            {additionalProducts.slice(currentIndex, currentIndex + productsPerPage).map(product => (
-                                <div className="product-card" key={product.id}>
-                                    <img src={product.image} alt={product.name} className="product-image" />
-                                    <div className="product-body">
-                                        <h5 className="product-name">{product.name}</h5>
-                                        <p className="product-description small">{product.description}</p>
-                                        <h5 className="product-price">{formatCurrency(product.price)}</h5>
-                                        <button className="add-to-cart" onClick={() => setCartItems([...cartItems, { ...product, quantity: 1 }])}>
-                                            Thêm vào giỏ hàng
-                                        </button>
-                                    </div>
+                    <h5 className="mb-4">Other products you may like :</h5>
+                    <div className="product-row" ref={productRowRef}>
+                        {additionalProducts.map(product => (
+                            <div className="product-card" key={product.id}>
+                                <img src={product.image} alt={product.name} className="product-image" />
+                                <div className="product-body">
+                                    <h5 className="product-name">{product.name}</h5>
+                                    <p className="product-description small">{product.description}</p>
+                                    <h5 className="product-price">{formatCurrency(product.price)}</h5>
+                                    <button className="add-to-cart" onClick={() => setCartItems([...cartItems, { ...product, quantity: 1 }])}>
+                                        Thêm vào giỏ hàng
+                                    </button>
                                 </div>
-                            ))}
-                        </div>
-                        <button className="carousel-btn next-btn" onClick={handleNextClick}>❯</button>
+                            </div>
+                        ))}
                     </div>
+                    {/* Nút điều hướng */}
+                    <button className="navigation-button left" onClick={() => scrollProductRow('left')}><IoIosArrowDropleft /></button>
+                    <button className="navigation-button right" onClick={() => scrollProductRow('right')}><IoIosArrowDropright /></button>
                 </div>
             </div>
+
         </div>
 
     );

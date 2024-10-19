@@ -1,9 +1,14 @@
 import React from "react";
 
 import "./../Home/Home.css";
+import Header from "../../Components/Items/Header/Header";
+import Footer from "../../Components/Items/Footer/Footer";
 
 export default function Home() {
     return (
-        <h2>Well Come To My Home Page</h2>
+        <div id="Home">
+            <Header />
+            <Footer />
+        </div>
     )
 }

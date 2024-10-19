@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import "./../ListItem/ListItem.css"
 
+import { Link } from "react-router-dom"; // Import Link
+
 import P1 from '/SWD392_FE/fe/src/assets/Product/1.jpg';
 import P2 from '/SWD392_FE/fe/src/assets/Product/2.jpg';
 import P3 from '/SWD392_FE/fe/src/assets/Product/3.jpg';
@@ -21,6 +23,7 @@ import P17 from '/SWD392_FE/fe/src/assets/Product/17.jpg';
 import P18 from '/SWD392_FE/fe/src/assets/Product/18.jpg';
 import P19 from '/SWD392_FE/fe/src/assets/Product/19.jpg';
 import P20 from '/SWD392_FE/fe/src/assets/Product/20.jpg';
+import P21 from '/SWD392_FE/fe/src/assets/Product/21.jpg';
 
 export default function ListItem() {
     const [currentPage, setCurrentPage] = useState(1)
@@ -28,6 +31,8 @@ export default function ListItem() {
     const itemsPerPage = 16
 
     const fakeData = [
+        { title: 'Combo xe điều khiển từ xa có camera giám sát', description: 'DIY', price: '560.000', currency: '₫', image: P21 },
+
         { title: 'Mạch đảo chiều động cơ từ xa', description: 'Sử dụng 6 - 24VDC', price: '235.000', currency: '₫', image: P1 },
         { title: 'Mạch sạc và bảo vệ pin', description: 'Pin 3S Lithium-ion 15A', price: '50.000', currency: '₫', image: P2 },
         { title: 'Mạch sạc pin lithium 12V', description: 'Dùng cho ắc quy xe đạp điện', price: '75.000', currency: '₫', image: P3 },
@@ -67,39 +72,37 @@ export default function ListItem() {
         { title: 'Mạch chuyển đổi AC-DC', description: 'AC-DC 5V 2A', price: '85.000', currency: '₫', image: P15 },
         { title: 'Bộ mạch phát Wifi', description: 'ESP8266', price: '120.000', currency: '₫', image: P16 },
         { title: 'Mạch điều khiển động cơ servo', description: 'SG90', price: '40.000', currency: '₫', image: P17 },
-        { title: 'Mạch cảm biến từ', description: 'Cảm biến từ trường', price: '50.000', currency: '₫', image: P18 }
+        { title: 'Mạch cảm biến từ', description: 'Cảm biến từ trường', price: '50.000', currency: '₫', image: P18 },
+
     ];
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-
-
-    const indexOfLastItem = currentPage * itemsPerPage
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage
-
-    // Tìm kiếm dựa trên tiền tố của từ khóa
     const filteredData = fakeData.filter(item => {
-        const searchLower = searchTerm.toLowerCase()
+        const searchLower = searchTerm.toLowerCase();
         return (
             item.title.toLowerCase().startsWith(searchLower) ||
             item.description.toLowerCase().startsWith(searchLower)
-        )
-    })
+        );
+    });
 
-    const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem)
-    const totalPages = Math.ceil(filteredData.length / itemsPerPage)
+    const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
     const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber)
-    }
+        setCurrentPage(pageNumber);
+    };
 
     const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value)
-        setCurrentPage(1) // Reset về trang đầu khi tìm kiếm
-    }
+        setSearchTerm(e.target.value);
+        setCurrentPage(1); // Reset to first page on search
+    };
 
     return (
         <div id="ListItem">
             <div className="filter-container">
                 <input
+                    id="search"
                     type="text"
                     className="filter-input"
                     placeholder="Search products..."
@@ -111,22 +114,27 @@ export default function ListItem() {
 
             <div className="ListItemPage-Container">
                 <div className="products-container">
-                    {currentItems.map((item, index) => (
-                        <div className="list-item" key={index}>
-                            <a href="#" className="list-item-link">
-                                <img src={item.image} alt={item.title} className="product-image" />
-                                <div className="product-details">
-                                    <h3 className="product-title">{item.title}</h3>
-                                    <p className="product-description">{item.description}</p>
-                                    <div className="product-price">
-                                        {item.currency} {item.price}
+                    {filteredData.length === 0 ? (
+                        <p>No products found.</p>
+                    ) : (
+                        currentItems.map((item, index) => (
+                            <div className="list-item" key={index}>
+                                <Link to={`/Product/Details/${item.title}`} className="list-item-link">
+                                    <img src={item.image} alt={item.title} className="product-image" />
+                                    <div className="product-details">
+                                        <h3 className="product-title">{item.title}</h3>
+                                        <p className="product-description">{item.description}</p>
+                                        <div className="product-price">
+                                            {item.price} {item.currency}
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    ))}
+                                </Link>
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
+
             <div className="pagination">
                 {Array.from({ length: totalPages }, (_, index) => (
                     <button key={index} onClick={() => handlePageChange(index + 1)} className={currentPage === index + 1 ? 'active' : ''}>
@@ -135,5 +143,5 @@ export default function ListItem() {
                 ))}
             </div>
         </div>
-    )
+    );
 }

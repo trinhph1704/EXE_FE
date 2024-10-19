@@ -11,7 +11,7 @@ export default function Login() {
     };
 
     return (
-        <div>
+        <div id="LoginPage">
             <div className="login-container">
                 <h2 className="form-title">Log in with</h2>
                 <div className="social-login">

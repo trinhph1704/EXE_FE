@@ -7,28 +7,27 @@
   font-family: "Montserrat", sans-serif;
 }
 
-body {
+#LoginPage {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url("/SWD392_FE/fe/src/assets/SG TOWN.jpg"); /* Đường dẫn đến hình ảnh */
-  background-size: cover; /* Để hình ảnh phủ đầy toàn bộ màn hình */
-  background-position: center; /* Để căn giữa hình ảnh */
-  background-repeat: no-repeat; /* Không lặp lại hình ảnh */
-}
-
-#root {
+  background-image: url("/SWD392_FE/fe/src/assets/Arduino.jpg");
+  /* background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c424bbb0-a0e6-4a95-b422-56f707c6e172/dg7c28l-81258807-0f9b-4d7a-9185-738d000d03bc.jpg/v1/fill/w_1024,h_683,q_75,strp/nature_background_image__cartoon_style_by_gabimedia_dg7c28l-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0MjRiYmIwLWEwZTYtNGE5NS1iNDIyLTU2ZjcwN2M2ZTE3MlwvZGc3YzI4bC04MTI1ODgwNy0wZjliLTRkN2EtOTE4NS03MzhkMDAwZDAzYmMuanBnIiwiaGVpZ2h0IjoiPD02ODMiLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC9jNDI0YmJiMC1hMGU2LTRhOTUtYjQyMi01NmY3MDdjNmUxNzJcL2dhYmltZWRpYS00LnBuZyIsIm9wYWNpdHkiOjk1LCJwcm9wb3J0aW9ucyI6MC40NSwiZ3Jhdml0eSI6ImNlbnRlciJ9fQ.kf5hpIk-dl_s0smKLMpeG5X0KWNKxELM8VHQRpAKqgk"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
   padding: 0 0.6rem;
+  background-size: 55%; /* hoặc một kích thước cụ thể như 300px 200px */
 }
 
 .login-container {
-  max-width: 400px;
+  width: 400px;
   margin: 0 auto;
   border-radius: 0.5rem;
   padding: 2rem 1.5rem;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9); /* Added slight transparency */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -47,14 +46,14 @@ body {
 .social-button {
   display: flex;
   width: 100%;
-  height: px; /* Thay đổi chiều cao thành 45px */
-  gap: 0.5rem; /* Điều chỉnh khoảng cách giữa các phần tử bên trong nút */
+  height: 45px; /* Set a specific height */
+  gap: 0.5rem;
   cursor: pointer;
-  font-size: 0.9rem; /* Giảm kích thước chữ */
+  font-size: 0.9rem;
   font-weight: 500;
-  padding: 0.5rem; /* Điều chỉnh padding để giảm kích thước tổng thể */
+  padding: 0.5rem;
   align-items: center;
-  border-radius: 0.25rem; /* Giảm độ cong của viền */
+  border-radius: 0.25rem;
   justify-content: center;
   background: #f9f8ff;
   border: 1px solid #d5cbff;
@@ -67,112 +66,112 @@ body {
 }
 
 .separator {
-  margin: 1.5rem 0; /* Space around the separator */
-  text-align: center; /* Center the text */
-  position: relative; /* Establish positioning context */
+  margin: 1.5rem 0;
+  text-align: center;
+  position: relative;
 }
 
 .separator span {
-  background: #fff; /* Background color for the text */
-  z-index: 1; /* Ensure it appears above the lines */
-  padding: 0 0.5rem; /* Horizontal padding for better appearance */
-  font-size: 1.06rem; /* Font size */
-  font-weight: 500; /* Font weight */
-  position: relative; /* Ensure the z-index works */
+  background: #fff;
+  z-index: 1;
+  padding: 0 0.5rem;
+  font-size: 1.06rem;
+  font-weight: 500;
+  position: relative;
 }
 
 .separator::before,
 .separator::after {
-  position: absolute; /* Position the lines absolutely */
-  content: ""; /* Content is empty for pseudo-elements */
-  top: 50%; /* Center vertically */
-  width: 100%; /* Full width */
-  height: 1px; /* Height of the lines */
-  background: #bfb3f2; /* Color of the lines */
+  position: absolute;
+  content: "";
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: #bfb3f2;
 }
 
 .separator::before {
-  left: 0; /* Align left line */
+  left: 0;
 }
 
 .separator::after {
-  right: 0; /* Align right line */
-  width: calc(100% - 2rem); /* Adjust width to allow for the text */
+  right: 0;
+  width: calc(100% - 2rem);
 }
 
 .login-form {
-  width: 100%; /* Ensure full width for the form */
+  width: 100%;
 }
 
 .input-wrapper {
-  position: relative; /* Establish positioning context for the icon */
-  margin-bottom: 1.5rem; /* Space below each input */
+  position: relative;
+  margin-bottom: 1.5rem;
 }
 
 .input-field {
-  height: 54px; /* Height of the input */
-  width: 100%; /* Full width */
-  outline: none; /* Remove outline */
-  font-size: 1.06rem; /* Font size */
-  border-radius: 0.31rem; /* Rounded corners */
-  border: 1px solid #bfb3f2; /* Border style */
-  padding: 0 1.25rem 0 3.12rem; /* Padding for input */
-  transition: border-color 0.3s ease; /* Transition for border color */
+  height: 54px;
+  width: 100%;
+  outline: none;
+  font-size: 1.06rem;
+  border-radius: 0.31rem;
+  border: 1px solid #bfb3f2;
+  padding: 0 1.25rem 0 3.12rem;
+  transition: border-color 0.3s ease;
 }
 
 .input-field:focus {
-  border-color: #5f41e4; /* Change border color on focus */
+  border-color: #5f41e4;
 }
 
 .input-wrapper i {
-  color: #a395e0; /* Color of the icon */
-  position: absolute; /* Absolute positioning for the icon */
-  left: 12px; /* Adjust as necessary */
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%); /* Correct vertical alignment */
-  pointer-events: none; /* Prevent interaction with the icon */
+  color: #a395e0;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .forgot-password-link {
-  display: block; /* Giữ nguyên để đảm bảo nó là một khối */
-  text-align: center; /* Căn giữa văn bản */
-  margin: 1rem 0; /* Giữ khoảng cách trên và dưới */
-  color: #5f41e4; /* Màu sắc của liên kết */
-  font-size: 0.9rem; /* Kích thước chữ cho liên kết */
-  text-decoration: none; /* Bỏ gạch chân */
+  display: block;
+  text-align: center;
+  margin: 1rem 0;
+  color: #5f41e4;
+  font-size: 0.9rem;
+  text-decoration: none;
 }
 
 .forgot-password-link:hover {
-  text-decoration: underline; /* Gạch chân khi hover */
+  text-decoration: underline;
 }
 
 .signup-text {
-  text-align: center; /* Center the signup text */
-  margin-top: 1.5rem; /* Space above */
+  text-align: center;
+  margin-top: 1.5rem;
 }
 
 .signup-text a {
-  color: #5f41e4; /* Color for the signup link */
-  text-decoration: none; /* Remove underline */
+  color: #5f41e4;
+  text-decoration: none;
 }
 
 .signup-text a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }
 
 .login-button {
-  width: 100%; /* Full width for the login button */
-  height: 54px; /* Height of the button */
-  background: #5f41e4; /* Background color */
-  color: #fff; /* Text color */
-  border: none; /* No border */
-  border-radius: 0.31rem; /* Rounded corners */
-  font-size: 1rem; /* Font size */
-  font-weight: 500; /* Font weight */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background 0.3s ease; /* Transition for background color */
+  width: 100%;
+  height: 54px;
+  background: #5f41e4;
+  color: #fff;
+  border: none;
+  border-radius: 0.31rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .login-button:hover {
-  background: #4d36b6; /* Darker shade on hover */
+  background: #4d36b6;
 }
