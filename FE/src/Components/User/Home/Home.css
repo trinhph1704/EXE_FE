@@ -140,6 +140,7 @@
   font-size: 1.2rem;
   color: #000;
   margin-top: 20px;
+  margin-bottom: auto;
 }
 
 #Home .product-item .price {
@@ -148,7 +149,7 @@
   text-decoration: none;
   font-weight: bold;
   color: #ff5722;
-  margin-top: -10px;
+  margin: auto;
 }
 
 #Home .product-item img {
