@@ -3,63 +3,64 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  margin-bottom: 100px;
 }
 
-.Home-Container {
+#Home .Home-Container {
   width: 100%;
   margin-top: 60px;
   background-color: ghostwhite;
 }
 
-.Home-Container2,
-.Home-Container3,
-.Home-Container4 {
+#Home .Home-Container2,
+#Home .Home-Container3,
+#Home .Home-Container4 {
   width: 100%;
   max-width: 1200px; /* Tùy chọn: Bạn có thể giới hạn chiều rộng nếu muốn */
   margin: 0 auto;
   padding: 20px; /* Đảm bảo có khoảng cách padding cho phần tử con */
 }
 
-.Home-Container1 {
+#Home .Home-Container1 {
   display: flex;
   flex-direction: row; /* Đặt flex theo chiều dọc để căn giữa các phần tử theo hàng */
   justify-content: center; /* Căn giữa theo chiều ngang */
   align-items: center; /* Căn giữa theo chiều dọc */
-  width: 100vw; /* Full ngang màn hình */
+  width: 99vw; /* Full ngang màn hình */
   height: auto; /* Đặt chiều cao tự động dựa trên nội dung */
   background-color: #f4dc92; /* Màu nền cho dễ nhận diện */
   padding: 100px;
   box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước chiều rộng */
 }
 
-.Home-Container1-Title h1 {
+#Home .Home-Container1-Title h1 {
   font-size: 3rem;
   color: #000;
   margin-bottom: 20px;
   margin-right: 220px;
 }
 
-.Home-Container1-Image img {
+#Home .Home-Container1-Image img {
   width: 100%;
   max-width: 400px; /* Giới hạn chiều rộng của ảnh */
   height: auto;
   object-fit: cover; /* Đảm bảo ảnh vừa với khung */
 }
 
-.Home-Container1-Image {
+#Home .Home-Container1-Image {
   display: flex;
   justify-content: center; /* Căn giữa hình ảnh theo chiều ngang */
   align-items: center;
 }
 
-.Home-Container2 {
+#Home .Home-Container2 {
   display: flex;
   justify-content: space-between;
   width: 35%;
   margin-top: 50px;
 }
 
-.Home-Container2-Viewmore {
+#Home .Home-Container2-Viewmore {
   color: black;
   font-weight: bold; /* Makes the text bold */
   text-decoration: none; /* Removes the underline */
@@ -70,7 +71,7 @@
   transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.Home-Container2-Viewmore:hover {
+#Home .Home-Container2-Viewmore:hover {
   color: white; /* Change text color on hover */
   background: linear-gradient(
     45deg,
@@ -81,16 +82,16 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
-.Home-Container2-BoardArduino p,
-.Home-Container2-KIT p {
+#Home .Home-Container2-BoardArduino p,
+#Home .Home-Container2-KIT p {
   font-weight: bold;
   font-size: 1.3rem;
   color: #000;
   margin-top: 20px;
 }
 
-.Home-Container2-BoardArduino,
-.Home-Container2-KIT {
+#Home .Home-Container2-BoardArduino,
+#Home .Home-Container2-KIT {
   text-align: center;
   flex: 1;
   margin: 0 10px;
@@ -101,24 +102,24 @@
   transition: transform 0.2s; /* Thêm hiệu ứng chuyển động khi hover */
 }
 
-.Home-Container2-BoardArduino:hover,
-.Home-Container2-KIT:hover {
+#Home .Home-Container2-BoardArduino:hover,
+#Home .Home-Container2-KIT:hover {
   transform: translateY(-5px); /* Nâng phần tử lên khi hover */
 }
 
-.Home-Container2-BoardArduino img,
-.Home-Container2-KIT img {
+#Home .Home-Container2-BoardArduino img,
+#Home .Home-Container2-KIT img {
   width: 100%;
   max-width: 200px;
 }
 
-.Home-Container3 {
+#Home .Home-Container3 {
   text-align: center;
   margin-top: 40px;
   width: 100%;
 }
 
-.product-list {
+#Home .product-list {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -127,7 +128,7 @@
   width: 100%;
 }
 
-.product-item {
+#Home .product-item {
   text-align: center;
   flex-basis: 22%; /* Chia đều các sản phẩm theo chiều rộng */
   margin: 10px;
@@ -135,13 +136,13 @@
   flex-direction: column;
 }
 
-.product-item p {
+#Home .product-item p {
   font-size: 1.2rem;
   color: #000;
   margin-top: 20px;
 }
 
-.product-item .price {
+#Home .product-item .price {
   font-size: 1.2rem;
   color: #000;
   text-decoration: none;
@@ -150,14 +151,14 @@
   margin-top: -10px;
 }
 
-.product-item img {
+#Home .product-item img {
   width: 100%;
   /* max-width: 150px; */
   /* height: 150px; */
   object-fit: cover;
 }
 
-.view-more-link {
+#Home .view-more-link {
   /* display: block; */
   margin-top: 20px;
   text-decoration: none;
@@ -166,19 +167,18 @@
   color: #000;
 }
 
-.Home-Container4 {
+#Home .Home-Container4 {
   display: flex;
   justify-content: center;
   margin-top: 40px;
   width: 100%;
-  margin-bottom: 100px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng */
   padding: 20px; /* Thêm padding để khoảng cách giữa nội dung và viền đổ bóng */
   border-radius: 10px; /* Tuỳ chọn: thêm bo góc nếu bạn muốn */
   background-color: white; /* Tuỳ chọn: thêm nền để làm nổi bật shadow */
 }
 
-.new-arrivals {
+#Home .new-arrivals {
   display: flex;
   align-items: center;
   width: 100%;
@@ -187,17 +187,17 @@
   background-color: #fef4d7;
 }
 
-.new-arrivals img {
+#Home .new-arrivals img {
   width: 100%;
   max-width: 600px;
   height: auto;
 }
 
-.new-arrivals-image {
+#Home .new-arrivals-image {
   background-color: white;
 }
 
-.new-arrivals-info {
+#Home .new-arrivals-info {
   color: #000;
   display: flex;
   flex-direction: column;
@@ -206,7 +206,7 @@
   text-align: center; /* Căn giữa văn bản */
 }
 
-.new-arrivals-info h3 {
+#Home .new-arrivals-info h3 {
   font-weight: bold;
   margin-bottom: 20px;
   font-size: 20px;
@@ -214,7 +214,7 @@
   justify-content: center; /* Căn giữa theo chiều dọc */
 }
 
-.new-arrivals-info p {
+#Home .new-arrivals-info p {
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 20px;
@@ -223,7 +223,7 @@
   padding: 20px;
 }
 
-.order-now-btn {
+#Home .order-now-btn {
   padding: 10px 20px;
   text-decoration: none;
   font-size: 1.2rem;
@@ -240,7 +240,7 @@
   transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà cho hover */
 }
 
-.order-now-btn:hover {
+#Home .order-now-btn:hover {
   color: white; /* Đổi màu chữ khi hover */
   background: linear-gradient(
     45deg,
