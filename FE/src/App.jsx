@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home/Home';
+import HomePage from './pages/HomePage/HomePage';
 import Login from './pages/Login/Login';
 import ListItemPage from './pages/UserPage/ListItemPage/ListItemPage';
 import ItemDetails from './Components/User/ItemDetails/ItemDetails';
@@ -17,7 +17,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
 
         {/* Trang Home sẽ hiển thị khi truy cập "/home" */}
-        <Route path="/Home" element={<Home />} />
+        <Route path="/Home" element={<HomePage />} />
 
         {/* Trang danh sách sản phẩm */}
         <Route path="/Product" element={<ListItemPage />} />
@@ -33,7 +33,7 @@ function App() {
 
         {/* Trang chỉ qua trang Thanh Toán và Giỏ Hàng  */}
         <Route path="/Cart" element={<CartPage />} />
-        {/* comment */}
+
       </Routes>
     </>
   );

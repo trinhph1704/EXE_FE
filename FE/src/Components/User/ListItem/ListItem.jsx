@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import "./../ListItem/ListItem.css"
+import { IoCartOutline } from "react-icons/io5";
 
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
 
 import P1 from '/SWD392_FE/fe/src/assets/Product/1.jpg';
 import P2 from '/SWD392_FE/fe/src/assets/Product/2.jpg';
@@ -28,6 +29,7 @@ import P21 from '/SWD392_FE/fe/src/assets/Product/21.jpg';
 export default function ListItem() {
     const [currentPage, setCurrentPage] = useState(1)
     const [searchTerm, setSearchTerm] = useState("")
+    const [cartCount] = useState(10); // Giả sử số lượng sản phẩm trong giỏ là 3
     const itemsPerPage = 16
 
     const fakeData = [
@@ -100,6 +102,7 @@ export default function ListItem() {
 
     return (
         <div id="ListItem">
+            {/* Search Filter */}
             <div className="filter-container">
                 <input
                     id="search"
@@ -112,6 +115,7 @@ export default function ListItem() {
                 <button className="filter-button">Search</button>
             </div>
 
+            {/* Product Listing */}
             <div className="ListItemPage-Container">
                 <div className="products-container">
                     {filteredData.length === 0 ? (
@@ -135,6 +139,12 @@ export default function ListItem() {
                 </div>
             </div>
 
+            <div className="cart-icon-container">
+                <IoCartOutline className="cart-icon" />
+                <span className="cart-count">{cartCount}</span>
+            </div>
+
+            {/* Pagination */}
             <div className="pagination">
                 {Array.from({ length: totalPages }, (_, index) => (
                     <button key={index} onClick={() => handlePageChange(index + 1)} className={currentPage === index + 1 ? 'active' : ''}>
@@ -142,6 +152,7 @@ export default function ListItem() {
                     </button>
                 ))}
             </div>
+
         </div>
     );
 }

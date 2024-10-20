@@ -4,165 +4,163 @@
   flex-direction: column;
 }
 
-.Cart-Container-01 {
+#Cart-Container .Cart-Container-01 {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h5 {
+#Cart-Container h5 {
   font-weight: bold;
 }
 
-.mb-4 {
+#Cart-Container .mb-4 {
   margin-bottom: 1.5rem;
 }
 
-/* Cải thiện giao diện của sản phẩm */
-.d-flex {
+#Cart-Container .d-flex {
   display: flex;
   align-items: center;
 }
 
-.quantity-control {
+#Cart-Container .quantity-control {
   margin: 0 10px;
 }
 
-.quantity-control .fa {
+#Cart-Container .quantity-control .fa {
   font-size: 20px;
-  color: #007bff; /* Màu cho icon tăng giảm số lượng */
+  color: #007bff;
 }
 
-.quantity-control .fa:hover {
-  color: #0056b3; /* Màu hover cho icon */
+#Cart-Container .quantity-control .fa:hover {
+  color: #0056b3;
 }
 
-.quantity-control .fa[style*="color: #ccc"] {
-  cursor: not-allowed; /* Hiển thị cursor không cho phép */
+#Cart-Container .quantity-control .fa[style*="color: #ccc"] {
+  cursor: not-allowed;
 }
 
-.MDBCard {
-  border-radius: 10px; /* Bo góc cho thẻ sản phẩm */
+#Cart-Container .MDBCard {
+  border-radius: 10px;
 }
 
-.MDBCardBody {
-  border-radius: 10px; /* Bo góc cho body của thẻ */
+#Cart-Container .MDBCardBody {
+  border-radius: 10px;
 }
 
-/* Cải thiện giao diện cho nút xóa */
-a {
-  color: #cecece; /* Màu cho icon xóa */
+#Cart-Container a {
+  color: #cecece;
 }
 
-a:hover {
-  color: #ff4d4d; /* Màu hover cho icon xóa */
+#Cart-Container a:hover {
+  color: #ff4d4d;
 }
 
-a[style*="color: #ccc"] {
-  pointer-events: none; /* Vô hiệu hóa sự kiện click cho icon xóa khi không sử dụng được */
-}
-.Cart-Container-02 {
-  width: 1350px; /* Chiều rộng cố định */
-  margin: 0 auto; /* Căn giữa toàn bộ container */
-  padding: 20px; /* Padding cho container */
-  position: relative; /* Để chứa vị trí tuyệt đối của nút chuyển */
+#Cart-Container a[style*="color: #ccc"] {
+  pointer-events: none;
 }
 
-.additional-products {
-  text-align: center; /* Căn giữa tiêu đề và nội dung */
+#Cart-Container .Cart-Container-02 {
+  width: 1350px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
 }
 
-.additional-products h5 {
-  margin-bottom: 20px; /* Khoảng cách giữa tiêu đề và sản phẩm */
+#Cart-Container .additional-products {
+  text-align: center;
 }
 
-.product-row {
+#Cart-Container .additional-products h5 {
+  margin-bottom: 20px;
+}
+
+#Cart-Container .product-row {
   display: flex;
-  justify-content: flex-start; /* Căn bắt đầu từ trái */
-  white-space: nowrap; /* Ngăn các sản phẩm xuống dòng */
-  overflow-x: auto; /* Cho phép cuộn ngang khi có nhiều sản phẩm */
-  position: relative; /* Để chứa vị trí tuyệt đối của các nút điều hướng */
-  scroll-behavior: smooth; /* Cuộn mượt mà khi ấn nút điều hướng */
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow-x: auto;
+  position: relative;
+  scroll-behavior: smooth;
 }
 
-.product-card {
-  background-color: whitesmoke; /* Màu nền cho thẻ sản phẩm */
-  border-radius: 10px; /* Bo góc cho thẻ */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
-  margin: 10px 20px; /* Khoảng cách giữa các thẻ */
-  width: 250px; /* Chiều rộng cố định cho thẻ sản phẩm */
-  transition: transform 0.3s ease; /* Hiệu ứng phóng to khi hover */
-  display: inline-block; /* Hiển thị các thẻ sản phẩm theo chiều ngang */
+#Cart-Container .product-card {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px 20px;
+  width: 250px;
+  transition: transform 0.3s ease;
+  display: inline-block;
 }
 
-.product-card:hover {
-  transform: scale(1.05); /* Phóng to nhẹ khi hover */
+#Cart-Container .product-card:hover {
+  transform: scale(1.05);
 }
 
-.product-image {
-  border-radius: 10px 10px 0 0; /* Bo góc cho hình ảnh phía trên */
-  width: 100%; /* Chiều rộng đầy đủ của hình ảnh */
-  height: 200px; /* Chiều cao cố định cho hình ảnh */
-  object-fit: cover; /* Đảm bảo hình ảnh vừa vặn và không bị biến dạng */
+#Cart-Container .product-image {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.product-body {
-  padding: 15px; /* Padding cho phần nội dung bên trong thẻ */
+#Cart-Container .product-body {
+  padding: 15px;
 }
 
-.product-name {
-  font-size: 15px; /* Kích thước chữ cho tên sản phẩm */
-  margin-bottom: 10px; /* Khoảng cách dưới cho tên sản phẩm */
-  white-space: nowrap; /* Ngăn không cho tên sản phẩm xuống dòng */
-  overflow: hidden; /* Ẩn phần tràn ra ngoài */
-  text-overflow: ellipsis; /* Thêm dấu "..." nếu văn bản bị tràn */
+#Cart-Container .product-name {
+  font-size: 15px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.product-description {
-  font-size: 0.875rem; /* Kích thước chữ nhỏ cho mô tả sản phẩm */
-  margin-bottom: 10px; /* Khoảng cách dưới cho mô tả */
+#Cart-Container .product-description {
+  font-size: 0.875rem;
+  margin-bottom: 10px;
 }
 
-.product-price {
-  font-size: 1.125rem; /* Kích thước chữ cho giá sản phẩm */
-  color: #007bff; /* Màu xanh cho giá sản phẩm */
-  margin-bottom: 15px; /* Khoảng cách dưới cho giá */
+#Cart-Container .product-price {
+  font-size: 1.125rem;
+  color: #007bff;
+  margin-bottom: 15px;
 }
 
-.add-to-cart {
-  background-color: #007bff; /* Màu nền xanh cho nút */
-  color: #fff; /* Màu chữ trắng */
-  border: none; /* Không viền */
-  border-radius: 5px; /* Bo góc cho nút */
-  padding: 10px 20px; /* Padding bên trong nút */
-  cursor: pointer; /* Đổi con trỏ chuột thành pointer khi hover */
-  transition: background-color 0.3s ease; /* Hiệu ứng hover mượt mà */
+#Cart-Container .add-to-cart {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.add-to-cart:hover {
-  background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+#Cart-Container .add-to-cart:hover {
+  background-color: #0056b3;
 }
 
-/* Nút điều hướng sản phẩm */
-.navigation-button {
+#Cart-Container .navigation-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  border: none; /* Không viền */
+  border: none;
   padding: 10px;
   cursor: pointer;
-  z-index: 10; /* Đảm bảo nút luôn ở trên cùng */
-  border-radius: 20%; /* Bo góc hình tròn */
+  z-index: 10;
+  border-radius: 20%;
 }
 
-.navigation-button.left {
-  left: -20px; /* Đặt nút bên trái ngoài container */
+#Cart-Container .navigation-button.left {
+  left: -20px;
 }
 
-.navigation-button.right {
-  right: -35px; /* Đặt nút bên phải ngoài container */
+#Cart-Container .navigation-button.right {
+  right: -35px;
 }
 
-.navigation-button:hover {
-  background-color: rgba(191, 182, 182, 0.7); /* Màu đậm hơn khi hover */
+#Cart-Container .navigation-button:hover {
+  background-color: rgba(191, 182, 182, 0.7);
 }

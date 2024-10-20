@@ -4,6 +4,7 @@ import './ItemDetails.css';
 import Header from "../../../Components/Items/Header/Header";
 import Footer from "../../../Components/Items/Footer/Footer";
 
+import { IoCartOutline } from "react-icons/io5";
 import P21 from '/SWD392_FE/fe/src/assets/Product/21.jpg';
 import P1 from '/SWD392_FE/fe/src/assets/Product/1.jpg';
 
@@ -14,6 +15,7 @@ const ItemDetails = () => {
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [cartCount] = useState(10); // Giả sử số lượng sản phẩm trong giỏ là 3
 
     // Sample product data
     const fakeData = [
@@ -257,6 +259,11 @@ void loop() {}
                     </code>
                 </pre>
                 <p dangerouslySetInnerHTML={{ __html: product.additionalInfo.details.referenceCode }} />
+            </div>
+
+            <div className="cart-icon-container">
+                <IoCartOutline className="cart-icon" />
+                <span className="cart-count">{cartCount}</span>
             </div>
 
             <Footer />
