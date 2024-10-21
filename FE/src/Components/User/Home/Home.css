@@ -26,11 +26,20 @@
   flex-direction: row; /* Đặt flex theo chiều dọc để căn giữa các phần tử theo hàng */
   justify-content: center; /* Căn giữa theo chiều ngang */
   align-items: center; /* Căn giữa theo chiều dọc */
-  width: 99vw; /* Full ngang màn hình */
-  height: auto; /* Đặt chiều cao tự động dựa trên nội dung */
-  background-color: #f4dc92; /* Màu nền cho dễ nhận diện */
+  width: 98vw; /* Full ngang màn hình */
+  margin-left: 10px;
+  height: 400px; /* Chiều cao cố định cho banner */
+  background: linear-gradient(
+      rgba(220, 217, 210, 0.8),
+      /* Màu nền với độ trong suốt */ rgba(40, 39, 37, 0.8)
+    ),
+    url("/src/assets/SG\ TOWN.jpg "); /* Thay thế bằng đường dẫn ảnh bạn muốn sử dụng */
+  background-size: cover; /* Đảm bảo ảnh nền bao phủ toàn bộ */
+  background-position: center; /* Căn giữa ảnh nền */
   padding: 100px;
   box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước chiều rộng */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Đổ bóng rõ ràng hơn */
+  border-radius: 10px; /* Bo góc cho banner */
 }
 
 #Home .Home-Container1-Title h1 {
@@ -42,7 +51,7 @@
 
 #Home .Home-Container1-Image img {
   width: 100%;
-  max-width: 400px; /* Giới hạn chiều rộng của ảnh */
+  max-width: 200px; /* Giới hạn chiều rộng của ảnh */
   height: auto;
   object-fit: cover; /* Đảm bảo ảnh vừa với khung */
 }
@@ -123,7 +132,6 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-top: 100px;
   margin-bottom: 20px;
   width: 100%;
 }
@@ -134,6 +142,16 @@
   margin: 10px;
   display: flex;
   flex-direction: column;
+  background-color: whitesmoke;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 4px 30px rgba(0, 0, 0, 0.1); /* Fancy shadow effect */
+  border-radius: 4%;
+  padding: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for hover effect */
+}
+
+#Home .product-item:hover {
+  transform: translateY(-5px); /* Slightly raise the item on hover */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 6px 40px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
 
 #Home .product-item p {
@@ -157,6 +175,7 @@
   /* max-width: 150px; */
   /* height: 150px; */
   object-fit: cover;
+  border-radius: 4%;
 }
 
 #Home .view-more-link {
