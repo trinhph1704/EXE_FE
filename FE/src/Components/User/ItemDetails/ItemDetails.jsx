@@ -6,7 +6,21 @@ import Footer from "../../../Components/Items/Footer/Footer";
 
 import { IoCartOutline } from "react-icons/io5";
 import P21 from '/SWD392_FE/fe/src/assets/Product/21.jpg';
-import P1 from '/SWD392_FE/fe/src/assets/Product/1.jpg';
+
+import P211 from '/SWD392_FE/fe/src/assets/Product/21.1.jpg';
+import P212 from '/SWD392_FE/fe/src/assets/Product/21.2.jpg';
+import P213 from '/SWD392_FE/fe/src/assets/Product/21.3.jpg';
+import P214 from '/SWD392_FE/fe/src/assets/Product/21.4.jpg';
+import P215 from '/SWD392_FE/fe/src/assets/Product/21.5.jpg';
+import P216 from '/SWD392_FE/fe/src/assets/Product/21.6.jpg';
+import P217 from '/SWD392_FE/fe/src/assets/Product/21.7.jpg';
+
+import P218 from '/SWD392_FE/fe/src/assets/Product/21.8.jpg';
+import P219 from '/SWD392_FE/fe/src/assets/Product/21.9.jpg';
+import P2110 from '/SWD392_FE/fe/src/assets/Product/21.10.jpg';
+import P2211 from '/SWD392_FE/fe/src/assets/Product/21.11.jpg';
+import P2112 from '/SWD392_FE/fe/src/assets/Product/21.12.jpg';
+
 
 
 const ItemDetails = () => {
@@ -15,7 +29,17 @@ const ItemDetails = () => {
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [cartCount] = useState(10); // Giả sử số lượng sản phẩm trong giỏ là 3
+    const [cartCount] = useState(10); // Giả sử số lượng sản phẩm trong giỏ là 10
+    const [mainImage, setMainImage] = useState(''); // Thêm state để quản lý ảnh chính
+
+    const imagePaths = [
+        P218,
+        P219,
+        P2110,
+        P2211,
+        P2112,
+    ];
+
 
     // Sample product data
     const fakeData = [
@@ -26,7 +50,7 @@ const ItemDetails = () => {
             Lưu ý: combo này là tự ráp, quý khách chỉ cần đấu nối và nạp code theo đúng sơ đồ là chạy, quý khách có thể chỉnh sửa lại code để tối ưu hơn.`,
             price: '560.000',
             currency: '₫',
-            images: P21,
+            images: [P21, P211, P212, P213, P214, P215, P216, P217],
             status: 'Còn hàng',
             additionalInfo: {
                 loyaltyPoints: '❤️ Công thêm 56 điểm tích lũy',
@@ -182,6 +206,7 @@ void loop() {}
 
         if (foundProduct) {
             setProduct(foundProduct);
+            setMainImage(foundProduct.images[0]); // Đặt ảnh chính ban đầu
             setLoading(false);
         } else {
             setError('Product not found');
@@ -202,7 +227,6 @@ void loop() {}
             </div>
         );
     }
-
     return (
         <div id="item-details">
             <Header />
@@ -211,7 +235,25 @@ void loop() {}
                 {product ? (
                     <div className="item-info">
                         <div className="item-image">
-                            <img src={product.images} alt={product.title} />
+                            {/* Ảnh chính */}
+
+                            <div className='item-image-maintain'>
+                                <img src={mainImage} alt={product.title} className="main-product-image" />
+                            </div>
+
+                            <div className="thumbnail-images">
+                                {product.images.map((image, index) => (
+                                    <div key={index} className="thumbnail-container">
+                                        <img
+                                            src={image}
+                                            alt={`Thumbnail ${index}`}
+                                            className="thumbnail"
+                                            onClick={() => setMainImage(image)} // Thay đổi ảnh chính khi click
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+
                         </div>
                         <div className="item-details-content">
                             <h2>{product.title}</h2>
@@ -247,7 +289,12 @@ void loop() {}
                 <h4>Hướng dẫn đấu nối khi nạp code</h4>
                 <ol>
                     {product.additionalInfo.details.connectionInstructions.map((item, index) => (
-                        <li key={index}>{item}</li>
+                        <li key={index}>
+                            <h3>{item}</h3>
+                            {imagePaths[index] && (
+                                <img src={imagePaths[index]} alt={`Hình ảnh cho ${item}`} style={{ width: '55%', marginLeft: '185px' }} />
+                            )}
+                        </li>
                     ))}
                 </ol>
                 <h4>Video demo</h4>
