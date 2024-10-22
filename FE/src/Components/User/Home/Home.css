@@ -8,7 +8,7 @@
 
 #Home .Home-Container {
   width: 100%;
-  margin-top: 60px;
+  margin-top: 72px;
   background-color: ghostwhite;
 }
 
@@ -28,7 +28,7 @@
   align-items: center; /* Căn giữa theo chiều dọc */
   width: 98vw; /* Full ngang màn hình */
   margin-left: 10px;
-  height: 400px; /* Chiều cao cố định cho banner */
+  height: 90ch;
   background: linear-gradient(
       rgba(220, 217, 210, 0.8),
       /* Màu nền với độ trong suốt */ rgba(40, 39, 37, 0.8)
