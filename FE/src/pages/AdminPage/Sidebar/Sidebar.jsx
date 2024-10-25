@@ -19,7 +19,7 @@ const Sidebar = () => {
         <div className="info-img img-fit-cover">
           <img src="https://i.imgur.com/4M34hi2.png" alt="profile image" />
         </div>
-        {isOpen && <span className="info-name">alice-doe</span>}
+        {isOpen && <span className="info-name">Admin Page</span>}
       </div>
 
       {/* Navigation Links */}
@@ -43,7 +43,7 @@ const Sidebar = () => {
               {isOpen && <span className="nav-link-text">ITEMS</span>}
             </a>
           </li>
-          
+
         </ul>
       </nav>
     </div>

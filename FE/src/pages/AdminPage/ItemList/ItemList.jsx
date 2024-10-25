@@ -71,6 +71,23 @@ const fakeData = [
 
 ];
 
+const handleAddProduct = () => {
+    // Logic thêm sản phẩm
+    console.log('Thêm sản phẩm');
+};
+
+// Hàm xử lý sửa sản phẩm
+const handleEditProduct = (index) => {
+    // Logic sửa sản phẩm
+    console.log(`Sửa sản phẩm tại index: ${index}`);
+};
+
+// Hàm xử lý xóa sản phẩm
+const handleDeleteProduct = (index) => {
+    // Logic xóa sản phẩm
+    console.log(`Xóa sản phẩm tại index: ${index}`);
+};
+
 
 const ItemList = () => {
     return (
@@ -92,22 +109,30 @@ const ItemList = () => {
                                     <th id="product-des-header">Description</th>
                                     <th id="product-price-header">Price</th>
                                     <th id="product-status-header">Status</th>
+                                    <th id="product-action-header">Actions</th> {/* Cột Actions */}
                                 </tr>
                             </thead>
                             <tbody>
                                 {fakeData.map((product, index) => (
                                     <tr key={index}>
                                         <td id={`product-name-${index}`}>{product.title}</td>
-                                        <td id={`product-img-${index}`}><img src={product.image} alt={product.title} className="product-image" /></td>
+                                        <td id={`product-img-${index}`}>
+                                            <img src={product.image} alt={product.title} className="product-image" />
+                                        </td>
                                         <td id={`product-des-${index}`}>{product.description}</td>
                                         <td id={`product-price-${index}`}>{product.price} {product.currency}</td>
                                         <td className={`status ${index % 2 === 0 ? 'active' : 'inactive'}`} id={`status-${index}`}>
                                             {index % 2 === 0 ? 'Active' : 'Inactive'}
                                         </td>
+                                        <td id={`product-action-${index}`}> {/* Cột Action */}
+                                            <button onClick={() => handleEditProduct(index)}>Edit</button>
+                                            <button onClick={() => handleDeleteProduct(index)}>Delete</button>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
+                        <button onClick={handleAddProduct}>Add Product</button> {/* Nút thêm sản phẩm */}
                     </div>
                 </div>
             </div>
