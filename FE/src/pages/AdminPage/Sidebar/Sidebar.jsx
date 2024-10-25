@@ -9,7 +9,7 @@ const Sidebar = () => {
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   return (
-    <div className={`sidebar ${isOpen ? "" : "sidebar-change"}`}>
+    <div className={`sidebars ${isOpen ? "" : "sidebar-change"}`}>
       {/* <button className="toggle-btn" onClick={toggleSidebar}>
         {isOpen ? "<<" : ">>"}
       </button> */}
@@ -26,7 +26,7 @@ const Sidebar = () => {
       <nav className="navigation">
         <ul className="nav-list">
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/dashboard">
               <FaHome className="nav-link-icon" />
               {isOpen && <span className="nav-link-text">DASHBOARD</span>}
             </a>
@@ -38,7 +38,7 @@ const Sidebar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/item">
               <FaWallet className="nav-link-icon" />
               {isOpen && <span className="nav-link-text">ITEMS</span>}
             </a>

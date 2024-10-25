@@ -9,6 +9,7 @@ import ProfilePage from './pages/UserPage/ProfilePage/ProfilePage';
 import CartPage from './pages/UserPage/CartPage/CartPage';
 import Sidebar from './pages/AdminPage/Sidebar/Sidebar';
 import AccountList from './pages/AdminPage/AccountList/AccountList';
+import Dashboard from './pages/AdminPage/Dashboard/Dashboard';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
 
         <Route path="/side" element={<Sidebar />} />
         <Route path="/account" element={<AccountList />} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
 
 

@@ -9,7 +9,7 @@
   
   /* Dashboard structure */
   .dashboard {
-    background-color: var(--clr-background);
+    background-color: #1e1611;
     padding: 20px;
     min-height: 100vh;
   }
@@ -27,7 +27,7 @@
   }
   
   .card {
-    background-color: var(--clr-dark-brown);
+    background-color: #2b2b2b;
     border-radius: 10px;
     padding: 20px;
     color: var(--clr-light-text);
@@ -101,6 +101,7 @@
     display: flex;
     height: 100vh; /* Đảm bảo chiếm toàn bộ chiều cao màn hình */
     overflow: hidden; /* Ngăn hiện thanh cuộn không cần thiết */
+    background-color: #1e1611;
   }
   
   .sidebar {
@@ -123,7 +124,7 @@
     flex: 1;
     padding: 20px;
     /* margin-right: 102px; */
-    background-color: var(--clr-background);
+    background-color: #1e1611;
     min-height: 100vh;
     position: fixed;
     right: 0;

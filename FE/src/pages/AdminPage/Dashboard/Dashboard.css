@@ -1,0 +1,172 @@
+/* Global Styles */
+#Dashboard {
+    display: flow-root;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1611; /* Nền tối */
+    color: #f5f5f5; /* Chữ màu sáng */
+    height: 1000px;
+  }
+  
+  /* Container */
+  .container-dash {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flow-root;
+    margin-right: 10px;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f5f5f5; /* Chữ màu sáng */
+  }
+  
+  /* Filters Section */
+  .filters {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .select-box {
+    padding: 10px;
+    border: 1px solid #444; /* Border tối hơn */
+    border-radius: 4px;
+    background-color: #2b2b2b; /* Nền của ô chọn màu tối */
+    color: #f5f5f5; /* Chữ màu sáng */
+  }
+  
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .button-filter {
+    background-color: #007bff;
+  }
+  
+  .button-refresh {
+    background-color: #28a745;
+  }
+  
+  /* KPI Cards */
+  .kpi-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .kpi-card {
+    background-color: #2b2b2b; /* Nền tối cho thẻ KPI */
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Đổ bóng nhẹ */
+    text-align: center;
+  }
+  
+  .kpi-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc; /* Chữ màu xám nhạt */
+  }
+  
+  .kpi-card h2 {
+    margin: 8px 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff; /* Chữ sáng */
+  }
+  
+  .kpi-card .kpi-percentage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #fff; /* Màu chữ sáng cho phần tỷ lệ phần trăm */
+  }
+  
+  .kpi-percentage span {
+    margin-left: 8px;
+  }
+  
+  /* Charts and Tables */
+  .charts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  
+  .chart-card,
+  .table-container,
+  .pie-chart-card {
+    background-color: #2b2b2b; /* Nền tối cho các thẻ biểu đồ và bảng */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    width: 565px;
+  }
+  
+  .chart-card h3,
+  .table-container h3,
+  .pie-chart-card h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #f5f5f5; /* Chữ màu sáng */
+  }
+  
+  /* Table Styles */
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-container th,
+  .table-container td {
+    padding: 12px;
+    border-bottom: 1px solid #444; /* Đường kẻ tối hơn */
+    text-align: left;
+    color: #f5f5f5; /* Chữ màu sáng */
+  }
+  
+  .table-container th {
+    font-weight: bold;
+    color: #f5f5f5; /* Chữ sáng cho phần header */
+  }
+  
+  /* Pie Chart Styles */
+  .pie-chart-card {
+    text-align: center;
+  }
+  
+  /* Cập nhật cho màu chữ và nền */
+  body,
+  .header h1,
+  .kpi-card h2,
+  .kpi-percentage,
+  .chart-card h3,
+  .table-container h3,
+  .pie-chart-card h3,
+  .table-container th,
+  .table-container td {
+    color: #f5f5f5; /* Màu chữ sáng toàn bộ */
+  }
+  

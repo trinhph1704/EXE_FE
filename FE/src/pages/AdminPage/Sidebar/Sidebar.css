@@ -1,9 +1,13 @@
 /* sidebar */
-.sidebar {
-  background-color: #29221d;
-  width: 260px;
-  padding: 36px 20px;
-  transition: var(--transition-default);
+.sidebars {
+  width: 250px;
+    background-color: #2b2b2b;
+    color: var(--clr-light-text);
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .user-info {
   display: flex;
