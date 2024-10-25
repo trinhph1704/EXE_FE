@@ -7,10 +7,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
 // Import Arduino project images
-import arduinoImage1 from '/SWD392_FE/fe/src/assets/SliderCard/1.jpg';
-import arduinoImage2 from '/SWD392_FE/fe/src/assets/SliderCard/2.jpg';
-import arduinoImage3 from '/SWD392_FE/fe/src/assets/SliderCard/3.jpg';
-import arduinoImage4 from '/SWD392_FE/fe/src/assets/SliderCard/4.jpg';
+import arduinoImage1 from '/src/assets/SliderCard/1.jpg';
+import arduinoImage2 from '/src/assets/SliderCard/2.jpg';
+import arduinoImage3 from '/src/assets/SliderCard/3.jpg';
+import arduinoImage4 from '/src/assets/SliderCard/4.jpg';
 
 // Fake data with Arduino projects and images
 const fakeData = [

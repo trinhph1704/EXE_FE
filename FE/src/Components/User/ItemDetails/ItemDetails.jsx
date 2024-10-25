@@ -5,21 +5,21 @@ import Header from "../../../Components/Items/Header/Header";
 import Footer from "../../../Components/Items/Footer/Footer";
 
 import { IoCartOutline } from "react-icons/io5";
-import P21 from '/SWD392_FE/fe/src/assets/Product/21.jpg';
+import P21 from '/src/assets/Product/21.jpg';
 
-import P211 from '/SWD392_FE/fe/src/assets/Product/21.1.jpg';
-import P212 from '/SWD392_FE/fe/src/assets/Product/21.2.jpg';
-import P213 from '/SWD392_FE/fe/src/assets/Product/21.3.jpg';
-import P214 from '/SWD392_FE/fe/src/assets/Product/21.4.jpg';
-import P215 from '/SWD392_FE/fe/src/assets/Product/21.5.jpg';
-import P216 from '/SWD392_FE/fe/src/assets/Product/21.6.jpg';
-import P217 from '/SWD392_FE/fe/src/assets/Product/21.7.jpg';
+import P211 from '/src/assets/Product/21.1.jpg';
+import P212 from '/src/assets/Product/21.2.jpg';
+import P213 from '/src/assets/Product/21.3.jpg';
+import P214 from '/src/assets/Product/21.4.jpg';
+import P215 from '/src/assets/Product/21.5.jpg';
+import P216 from '/src/assets/Product/21.6.jpg';
+import P217 from '/src/assets/Product/21.7.jpg';
 
-import P218 from '/SWD392_FE/fe/src/assets/Product/21.8.jpg';
-import P219 from '/SWD392_FE/fe/src/assets/Product/21.9.jpg';
-import P2110 from '/SWD392_FE/fe/src/assets/Product/21.10.jpg';
-import P2211 from '/SWD392_FE/fe/src/assets/Product/21.11.jpg';
-import P2112 from '/SWD392_FE/fe/src/assets/Product/21.12.jpg';
+import P218 from '/src/assets/Product/21.8.jpg';
+import P219 from '/src/assets/Product/21.9.jpg';
+import P2110 from '/src/assets/Product/21.10.jpg';
+import P2211 from '/src/assets/Product/21.11.jpg';
+import P2112 from '/src/assets/Product/21.12.jpg';
 
 
 

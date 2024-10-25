@@ -1,13 +1,13 @@
 import React from "react";
 import "./../Home/Home.css"; // Đảm bảo bạn đã tạo file CSS cho trang này
 
-import Logo from '/SWD392_FE/fe/src/assets/Logo NSHOP.png';
-import P21 from '/SWD392_FE/fe/src/assets/Product/21.jpg';
-import P22 from '/SWD392_FE/fe/src/assets/Product/22.jpg';
-import P23 from '/SWD392_FE/fe/src/assets/Product/23.jpg';
-import P24 from '/SWD392_FE/fe/src/assets/Product/24.jpg';
-import P25 from '/SWD392_FE/fe/src/assets/Product/25.jpg';
-import P26 from '/SWD392_FE/fe/src/assets/Product/26.jpg';
+import Logo from '/src/assets/Logo NSHOP.png';
+import P21 from '/src/assets/Product/21.jpg';
+import P22 from '/src/assets/Product/22.jpg';
+import P23 from '/src/assets/Product/23.jpg';
+import P24 from '/src/assets/Product/24.jpg';
+import P25 from '/src/assets/Product/25.jpg';
+import P26 from '/src/assets/Product/26.jpg';
 
 
 

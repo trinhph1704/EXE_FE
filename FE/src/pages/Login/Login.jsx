@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./login.css";
-import Google from '/SWD392_FE/fe/src/assets/Logo/Google.png';
-import Apple from '/SWD392_FE/fe/src/assets/Logo/Apple.webp';
+import Google from '/src/assets/Logo/Google.png';
+import Apple from '/src/assets/Logo/Apple.webp';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);

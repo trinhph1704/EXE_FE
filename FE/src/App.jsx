@@ -7,6 +7,8 @@ import ItemDetails from './Components/User/ItemDetails/ItemDetails';
 import NotFound from './pages/NotFound/NotFound';
 import ProfilePage from './pages/UserPage/ProfilePage/ProfilePage';
 import CartPage from './pages/UserPage/CartPage/CartPage';
+import Sidebar from './pages/AdminPage/Sidebar/Sidebar';
+import AccountList from './pages/AdminPage/AccountList/AccountList';
 
 
 function App() {
@@ -33,6 +35,11 @@ function App() {
 
         {/* Trang chỉ qua trang Thanh Toán và Giỏ Hàng  */}
         <Route path="/Cart" element={<CartPage />} />
+
+        <Route path="/side" element={<Sidebar />} />
+        <Route path="/account" element={<AccountList />} />
+
+
 
       </Routes>
     </>

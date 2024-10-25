@@ -4,27 +4,27 @@ import { IoCartOutline } from "react-icons/io5";
 
 import { Link } from "react-router-dom";
 
-import P1 from '/SWD392_FE/fe/src/assets/Product/1.jpg';
-import P2 from '/SWD392_FE/fe/src/assets/Product/2.jpg';
-import P3 from '/SWD392_FE/fe/src/assets/Product/3.jpg';
-import P4 from '/SWD392_FE/fe/src/assets/Product/4.jpg';
-import P5 from '/SWD392_FE/fe/src/assets/Product/5.jpg';
-import P6 from '/SWD392_FE/fe/src/assets/Product/6.jpg';
-import P7 from '/SWD392_FE/fe/src/assets/Product/7.jpg';
-import P8 from '/SWD392_FE/fe/src/assets/Product/8.jpg';
-import P9 from '/SWD392_FE/fe/src/assets/Product/9.jpg';
-import P10 from '/SWD392_FE/fe/src/assets/Product/10.jpg';
-import P11 from '/SWD392_FE/fe/src/assets/Product/11.jpg';
-import P12 from '/SWD392_FE/fe/src/assets/Product/12.jpg';
-import P13 from '/SWD392_FE/fe/src/assets/Product/13.jpg';
-import P14 from '/SWD392_FE/fe/src/assets/Product/14.jpg';
-import P15 from '/SWD392_FE/fe/src/assets/Product/15.jpg';
-import P16 from '/SWD392_FE/fe/src/assets/Product/16.jpg';
-import P17 from '/SWD392_FE/fe/src/assets/Product/17.jpg';
-import P18 from '/SWD392_FE/fe/src/assets/Product/18.jpg';
-import P19 from '/SWD392_FE/fe/src/assets/Product/19.jpg';
-import P20 from '/SWD392_FE/fe/src/assets/Product/20.jpg';
-import P21 from '/SWD392_FE/fe/src/assets/Product/21.jpg';
+import P1 from '/src/assets/Product/1.jpg';
+import P2 from '/src/assets/Product/2.jpg';
+import P3 from '/src/assets/Product/3.jpg';
+import P4 from '/src/assets/Product/4.jpg';
+import P5 from '/src/assets/Product/5.jpg';
+import P6 from '/src/assets/Product/6.jpg';
+import P7 from '/src/assets/Product/7.jpg';
+import P8 from '/src/assets/Product/8.jpg';
+import P9 from '/src/assets/Product/9.jpg';
+import P10 from '/src/assets/Product/10.jpg';
+import P11 from '/src/assets/Product/11.jpg';
+import P12 from '/src/assets/Product/12.jpg';
+import P13 from '/src/assets/Product/13.jpg';
+import P14 from '/src/assets/Product/14.jpg';
+import P15 from '/src/assets/Product/15.jpg';
+import P16 from '/src/assets/Product/16.jpg';
+import P17 from '/src/assets/Product/17.jpg';
+import P18 from '/src/assets/Product/18.jpg';
+import P19 from '/src/assets/Product/19.jpg';
+import P20 from '/src/assets/Product/20.jpg';
+import P21 from '/src/assets/Product/21.jpg';
 
 export default function ListItem() {
     const [currentPage, setCurrentPage] = useState(1)

@@ -22,7 +22,7 @@ import {
     MDBTypography,
 } from "mdb-react-ui-kit";
 
-import P21 from '/SWD392_FE/fe/src/assets/Product/21.jpg';
+import P21 from '/src/assets/Product/21.jpg';
 
 // Dữ liệu giả cho sản phẩm trong giỏ hàng
 const fakeData = [

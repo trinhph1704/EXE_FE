@@ -6,10 +6,10 @@ import Stack from "@mui/material/Stack";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoIosArrowRoundBack } from "react-icons/io";
 
-import arduinoImage1 from '/SWD392_FE/fe/src/assets/SliderCard/1.jpg';
-import arduinoImage2 from '/SWD392_FE/fe/src/assets/SliderCard/2.jpg';
-import arduinoImage3 from '/SWD392_FE/fe/src/assets/SliderCard/3.jpg';
-import arduinoImage4 from '/SWD392_FE/fe/src/assets/SliderCard/4.jpg';
+import arduinoImage1 from '/src/assets/SliderCard/1.jpg';
+import arduinoImage2 from '/src/assets/SliderCard/2.jpg';
+import arduinoImage3 from '/src/assets/SliderCard/3.jpg';
+import arduinoImage4 from '/src/assets/SliderCard/4.jpg';
 
 
 const fakeData = [

@@ -1,48 +1,53 @@
-import { useEffect, useState } from 'react';
-import { personsImgs } from '../../utils/images';
-import { navigationLinks } from '../../data/data';
-import "./Sidebar.css";
-import { useContext } from 'react';
-import { SidebarContext } from '../../context/sidebarContext';
+import React, { useState } from 'react';
+import { FaHome, FaFileInvoiceDollar, FaRegChartBar, FaUser, FaCog, FaDollarSign, FaWallet, FaCreditCard, FaLightbulb } from "react-icons/fa"; // Import icons
+import { Link } from 'react-router-dom';
+import './Sidebar.css';
 
 const Sidebar = () => {
-  const [activeLinkIdx] = useState(1);
-  const [sidebarClass, setSidebarClass] = useState("");
-  const { isSidebarOpen } = useContext(SidebarContext);
+  const [isOpen, setIsOpen] = useState(true);
 
-  useEffect(() => {
-    if(isSidebarOpen){
-      setSidebarClass('sidebar-change');
-    } else {
-      setSidebarClass('');
-    }
-  }, [isSidebarOpen]);
+  const toggleSidebar = () => setIsOpen(!isOpen);
 
   return (
-    <div className={ `sidebar ${sidebarClass}` }>
+    <div className={`sidebar ${isOpen ? "" : "sidebar-change"}`}>
+      {/* <button className="toggle-btn" onClick={toggleSidebar}>
+        {isOpen ? "<<" : ">>"}
+      </button> */}
+
+      {/* Profile Section */}
       <div className="user-info">
-          <div className="info-img img-fit-cover">
-              <img src={ personsImgs.person_two } alt="profile image" />
-          </div>
-          <span className="info-name">alice-doe</span>
+        <div className="info-img img-fit-cover">
+          <img src="https://i.imgur.com/4M34hi2.png" alt="profile image" />
+        </div>
+        {isOpen && <span className="info-name">alice-doe</span>}
       </div>
 
+      {/* Navigation Links */}
       <nav className="navigation">
-          <ul className="nav-list">
-            {/* {
-              navigationLinks.map((navigationLink) => (
-                <li className="nav-item" key = { navigationLink.id }>
-                  <a href="#" className={ `nav-link ${ navigationLink.id === activeLinkIdx ? 'active' : null }` }>
-                      <img src={ navigationLink.image } className="nav-link-icon" alt = { navigationLink.title } />
-                      <span className="nav-link-text">{ navigationLink.title }</span>
-                  </a>
-                </li>
-              ))
-            } Đoạn cần đổi code để link qua item,account và dasboard*/ } 
-          </ul>
+        <ul className="nav-list">
+          <li className="nav-item">
+            <a className="nav-link" href="#">
+              <FaHome className="nav-link-icon" />
+              {isOpen && <span className="nav-link-text">DASHBOARD</span>}
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/account">
+              <FaFileInvoiceDollar className="nav-link-icon" />
+              {isOpen && <span className="nav-link-text">ACCOUNTS</span>}
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">
+              <FaWallet className="nav-link-icon" />
+              {isOpen && <span className="nav-link-text">ITEMS</span>}
+            </a>
+          </li>
+          
+        </ul>
       </nav>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
