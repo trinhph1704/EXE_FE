@@ -77,6 +77,7 @@ export default function ListItem() {
         { title: 'Mạch cảm biến từ', description: 'Cảm biến từ trường', price: '50.000', currency: '₫', image: P18 },
 
     ];
+
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 

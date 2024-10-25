@@ -16,9 +16,10 @@
 #Home .Home-Container3,
 #Home .Home-Container4 {
   width: 100%;
-  max-width: 1200px; /* Tùy chọn: Bạn có thể giới hạn chiều rộng nếu muốn */
+  max-width: 1100px; /* Tùy chọn: Bạn có thể giới hạn chiều rộng nếu muốn */
   margin: 0 auto;
   padding: 20px; /* Đảm bảo có khoảng cách padding cho phần tử con */
+  margin-bottom: 7%;
 }
 
 #Home .Home-Container1 {
@@ -30,10 +31,10 @@
   margin-left: 10px;
   height: 90ch;
   background: linear-gradient(
-      rgba(220, 217, 210, 0.8),
-      /* Màu nền với độ trong suốt */ rgba(40, 39, 37, 0.8)
+      rgba(162, 161, 158, 0.8),
+      /* Màu nền với độ trong suốt */ rgba(0, 0, 0, 0.8)
     ),
-    url("/src/assets/SG\ TOWN.jpg "); /* Thay thế bằng đường dẫn ảnh bạn muốn sử dụng */
+    url("/src/assets/Banner.jpg "); /* Thay thế bằng đường dẫn ảnh bạn muốn sử dụng */
   background-size: cover; /* Đảm bảo ảnh nền bao phủ toàn bộ */
   background-position: center; /* Căn giữa ảnh nền */
   padding: 100px;
@@ -179,12 +180,44 @@
 }
 
 #Home .view-more-link {
-  /* display: block; */
   margin-top: 20px;
   text-decoration: none;
   font-size: 1.2rem;
-  border-bottom: 2px solid #000;
-  color: #000;
+  color: black; /* Màu chữ */
+  position: relative;
+  padding-bottom: 5px;
+  transition: all 0.4s ease; /* Hiệu ứng chuyển đổi mượt */
+}
+
+#Home .view-more-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #3498db;
+  transform: scaleX(0); /* Ẩn viền dưới ban đầu */
+  transform-origin: right;
+  transition: transform 0.4s ease; /* Hiệu ứng mở rộng viền dưới */
+}
+
+#Home .view-more-link:hover::after {
+  transform: scaleX(1); /* Mở rộng viền dưới khi hover */
+  transform-origin: left;
+}
+
+#Home .view-more-link:hover {
+  color: #cc502e; /* Đổi màu chữ khi hover */
+  padding-bottom: 10px;
+  letter-spacing: 1px; /* Tăng khoảng cách giữa các ký tự */
+  font-weight: bold; /* Làm đậm chữ */
+  background: linear-gradient(
+    120deg,
+    rgba(0, 255, 255, 0.1),
+    rgba(46, 204, 113, 0.1)
+  ); /* Đổi màu nền khi hover */
+  border-radius: 5px; /* Tạo bo tròn nhẹ cho nền */
 }
 
 #Home .Home-Container4 {

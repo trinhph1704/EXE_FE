@@ -171,7 +171,7 @@ export default function Cart() {
                                         <MDBRow>
                                             <MDBCol lg="7">
                                                 <MDBTypography tag="h5">
-                                                    <a href="#!" className="text-body">
+                                                    <a href="/Product" className="text-body">
                                                         <MDBIcon fas icon="long-arrow-alt-left me-2" /> Continue shopping
                                                     </a>
                                                 </MDBTypography>
