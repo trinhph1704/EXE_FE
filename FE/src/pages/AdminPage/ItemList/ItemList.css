@@ -1,0 +1,82 @@
+:root {
+    --clr-dark-brown: #2b190b;
+    --clr-light-brown: #362010;
+    --clr-orange: #ff6a00;
+    --clr-light-text: #ffffff;
+    --clr-dark-text: #a8a8a8;
+    --clr-background: #1c1c1c;
+}
+
+/* Dashboard structure */
+.dashboard {
+    background-color: #1e1611;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+#dashboard-header {
+    text-align: left;
+    color: var(--clr-light-text);
+    margin-bottom: 20px;
+}
+
+#dashboard-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+#account-card {
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--clr-light-text);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#all-products-title {
+    color: var(--clr-orange);
+    margin-bottom: 15px;
+}
+
+/* Table Styling */
+#account-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#account-table th,
+#account-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--clr-light-brown);
+}
+
+#account-table th {
+    color: var(--clr-dark-text);
+    text-transform: uppercase;
+}
+
+#account-table td {
+    color: var(--clr-light-text);
+}
+
+.product-image {
+    width: 50px;
+    height: auto;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.active {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.inactive {
+    background-color: #f44336;
+    color: #ffffff;
+}

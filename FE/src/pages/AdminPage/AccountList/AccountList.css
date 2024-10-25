@@ -1,138 +1,146 @@
 :root {
-    --clr-dark-brown: #2b190b;
-    --clr-light-brown: #362010;
-    --clr-orange: #ff6a00;
-    --clr-light-text: #ffffff;
-    --clr-dark-text: #a8a8a8;
-    --clr-background: #1c1c1c;
-  }
-  
-  /* Dashboard structure */
-  .dashboard {
-    background-color: #1e1611;
-    padding: 20px;
-    min-height: 100vh;
-  }
-  
-  .dashboard-header {
-    text-align: left;
-    color: var(--clr-light-text);
-    margin-bottom: 20px;
-  }
-  
-  .dashboard-cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .card {
-    background-color: #2b2b2b;
-    border-radius: 10px;
-    padding: 20px;
-    color: var(--clr-light-text);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h3 {
-    color: var(--clr-orange);
-    margin-bottom: 15px;
-  }
-  
-  /* Table Styling */
-  .account-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .account-table th, .account-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid var(--clr-light-brown);
-  }
-  
-  .account-table th {
-    color: var(--clr-dark-text);
-    text-transform: uppercase;
-  }
-  
-  .account-table td {
-    color: var(--clr-light-text);
-  }
-  
-  .account-table tr:hover {
-    background-color: var(--clr-light-brown);
-  }
-  
-  /* Status Styles */
-  .status {
-    padding: 5px 10px;
-    border-radius: 20px;
-    text-align: center;
-  }
-  
-  .status.active {
-    background-color: #28a745;
-    color: var(--clr-light-text);
-  }
-  
-  .status.inactive {
-    background-color: #dc3545;
-    color: var(--clr-light-text);
-  }
-  
-  .status.pending {
-    background-color: #ffc107;
-    color: var(--clr-dark-brown);
-  }
-  /* src/pages/AccountList.css */
+  --clr-dark-brown: #2b190b;
+  --clr-light-brown: #362010;
+  --clr-orange: #ff6a00;
+  --clr-light-text: #ffffff;
+  --clr-dark-text: #a8a8a8;
+  --clr-background: #1c1c1c;
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;
-  }
-  
-  .container {
-    display: flex;
-    height: 100vh; /* Đảm bảo chiếm toàn bộ chiều cao màn hình */
-    overflow: hidden; /* Ngăn hiện thanh cuộn không cần thiết */
-    background-color: #1e1611;
-  }
-  
-  .sidebar {
-    width: 250px;
-    background-color: var(--clr-dark-brown);
-    color: var(--clr-light-text);
-    padding: 20px;
-    height: 100vh; /* Kéo dài toàn bộ chiều cao của trang */
-    position: fixed; /* Cố định sidebar bên trái */
-    top: 0;
-    left: 0;
-  }
-  .nav-link.active {
-    background-color: #fe6c00;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-      rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-  }
-  
-  .dashboard {
-    flex: 1;
-    padding: 20px;
-    /* margin-right: 102px; */
-    background-color: #1e1611;
-    min-height: 100vh;
-    position: fixed;
-    right: 0;
-    left: 250px;
-  }
-  
-  .dashboard-header {
-    text-align: left;
-    color: var(--clr-light-text);
-    margin-bottom: 20px;
-  }
+/* Dashboard structure */
+.dashboard {
+  background-color: #1e1611;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  text-align: left;
+  color: var(--clr-light-text);
+  margin-bottom: 20px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.card {
+  background-color: #2b2b2b;
+  border-radius: 10px;
+  padding: 20px;
+  color: var(--clr-light-text);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  color: var(--clr-orange);
+  margin-bottom: 15px;
+}
+
+/* Table Styling */
+.account-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.account-table th,
+.account-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--clr-light-brown);
+}
+
+.account-table th {
+  color: var(--clr-dark-text);
+  text-transform: uppercase;
+}
+
+.account-table td {
+  color: var(--clr-light-text);
+}
+
+.account-table tr:hover {
+  background-color: var(--clr-light-brown);
+}
+
+/* Status Styles */
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.status.active {
+  background-color: #28a745;
+  color: var(--clr-light-text);
+}
+
+.status.inactive {
+  background-color: #dc3545;
+  color: var(--clr-light-text);
+}
+
+.status.pending {
+  background-color: #ffc107;
+  color: var(--clr-dark-brown);
+}
+
+/* src/pages/AccountList.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  /* Đảm bảo chiếm toàn bộ chiều cao màn hình */
+  overflow: hidden;
+  /* Ngăn hiện thanh cuộn không cần thiết */
+  background-color: #1e1611;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--clr-dark-brown);
+  color: var(--clr-light-text);
+  padding: 20px;
+  height: 100vh;
+  /* Kéo dài toàn bộ chiều cao của trang */
+  position: fixed;
+  /* Cố định sidebar bên trái */
+  top: 0;
+  left: 0;
+}
+
+.nav-link.active {
+  background-color: #fe6c00;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.dashboard {
+  flex: 1;
+  padding: 20px;
+  /* margin-right: 102px; */
+  background-color: #1e1611;
+  min-height: 100vh;
+  position: fixed;
+  right: 0;
+  left: 250px;
+}
+
+.dashboard-header {
+  text-align: left;
+  color: var(--clr-light-text);
+  margin-bottom: 20px;
+}

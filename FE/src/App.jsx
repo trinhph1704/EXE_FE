@@ -10,7 +10,7 @@ import CartPage from './pages/UserPage/CartPage/CartPage';
 import Sidebar from './pages/AdminPage/Sidebar/Sidebar';
 import AccountList from './pages/AdminPage/AccountList/AccountList';
 import Dashboard from './pages/AdminPage/Dashboard/Dashboard';
-
+import Itemlist from './pages/AdminPage/ItemList/ItemList';
 
 function App() {
   return (
@@ -37,9 +37,11 @@ function App() {
         {/* Trang chỉ qua trang Thanh Toán và Giỏ Hàng  */}
         <Route path="/Cart" element={<CartPage />} />
 
+        {/* Trang Admin */}
         <Route path="/side" element={<Sidebar />} />
         <Route path="/account" element={<AccountList />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/item" element={<Itemlist />} />
 
 
 

@@ -18,7 +18,7 @@ const AccountList = () => {
         <div className="dashboard-header">
           <h2>Accounts Overview</h2>
         </div>
-        
+
         {/* Accounts List Section */}
         <div className="dashboard-cards">
           <div className="card account-card">
