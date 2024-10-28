@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import "./../ListItem/ListItem.css"
 import { IoCartOutline } from "react-icons/io5";
-
 import { Link } from "react-router-dom";
 
 import P1 from '/src/assets/Product/1.jpg';
@@ -27,10 +26,13 @@ import P20 from '/src/assets/Product/20.jpg';
 import P21 from '/src/assets/Product/21.jpg';
 
 export default function ListItem() {
-    const [currentPage, setCurrentPage] = useState(1)
-    const [searchTerm, setSearchTerm] = useState("")
-    const [cartCount] = useState(10); // Giả sử số lượng sản phẩm trong giỏ là 3
-    const itemsPerPage = 16
+    const [currentPage, setCurrentPage] = useState(1);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [cartCount] = useState(10); // Giả sử số lượng sản phẩm trong giỏ là 10
+    const [sortOption, setSortOption] = useState(""); // Tùy chọn sắp xếp
+    const [productType, setProductType] = useState(""); // Tùy chọn loại sản phẩm
+    const [priceRange, setPriceRange] = useState(""); // Phạm vi giá
+    const itemsPerPage = 16; // Số sản phẩm hiển thị mỗi trang
 
     const fakeData = [
         { title: 'Combo xe điều khiển từ xa có camera giám sát', description: 'DIY', price: '560.000', currency: '₫', image: P21 },
@@ -78,82 +80,184 @@ export default function ListItem() {
 
     ];
 
+    // Tính toán chỉ số sản phẩm hiện tại
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
+    // Lọc dữ liệu dựa trên từ khóa tìm kiếm, loại sản phẩm và phạm vi giá
     const filteredData = fakeData.filter(item => {
-        const searchLower = searchTerm.toLowerCase();
+        // Chuyển đổi giá thành số
+        const itemPrice = parseFloat(item.price.replace(/\./g, '').replace('₫', '').trim());
+
+        // Xác định khoảng giá
+        let minPrice = 0;
+        let maxPrice = Infinity;
+
+        if (priceRange === "0-200") {
+            maxPrice = 200000; // Điều chỉnh giá tối đa
+        } else if (priceRange === "200-500") {
+            minPrice = 200000;
+            maxPrice = 500000;
+        } else if (priceRange === "500-1000") {
+            minPrice = 500000;
+            maxPrice = 1000000;
+        } else if (priceRange === "1000-2000") {
+            minPrice = 1000000;
+            maxPrice = 5000000;
+        }
+
+        // In ra thông tin để kiểm tra
+        console.log(`Item: ${item.title}, Price: ${itemPrice}, Min: ${minPrice}, Max: ${maxPrice}`);
+
         return (
-            item.title.toLowerCase().startsWith(searchLower) ||
-            item.description.toLowerCase().startsWith(searchLower)
+            (item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                item.description.toLowerCase().includes(searchTerm.toLowerCase())) &&
+            (productType ? (productType === "DIY" ? item.title.startsWith("Combo") : !item.title.startsWith("Combo")) : true) &&
+            (itemPrice >= minPrice && itemPrice < maxPrice) // Kiểm tra khoảng giá
         );
     });
 
-    const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
-    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+    // Sắp xếp dữ liệu theo tùy chọn
+    const sortedData = [...filteredData].sort((a, b) => {
+        const priceA = parseFloat(a.price.replace(/\./g, '').replace('₫', '').trim());
+        const priceB = parseFloat(b.price.replace(/\./g, '').replace('₫', '').trim());
 
+        switch (sortOption) {
+            case "name":
+                return a.title.localeCompare(b.title);
+            case "priceLowToHigh":
+                return priceA - priceB; // Sắp xếp từ thấp đến cao
+            case "priceHighToLow":
+                return priceB - priceA; // Sắp xếp từ cao đến thấp
+            default:
+                return 0;
+        }
+    });
+
+    // Lấy danh sách sản phẩm hiện tại cho trang hiện tại
+    const currentItems = sortedData.slice(indexOfFirstItem, indexOfLastItem);
+    const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+
+    // Hàm xử lý thay đổi trang
     const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
+        setCurrentPage(pageNumber); // Assuming you have a state for currentPage
+        window.scrollTo({
+            top: 0, // Scroll to the top of the page
+            behavior: 'smooth' // Smooth scroll
+        });
     };
 
+
+    // Hàm xử lý thay đổi từ khóa tìm kiếm
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
-        setCurrentPage(1); // Reset to first page on search
+        setCurrentPage(1); // Reset trang về 1 khi tìm kiếm
     };
+
+    // Hàm xử lý thay đổi tùy chọn sắp xếp
+    const handleSortChange = (option) => {
+        setSortOption(option);
+        setCurrentPage(1); // Reset trang về 1 khi sắp xếp
+    };
+
+    // Hàm xử lý thay đổi loại sản phẩm
+    const handleTypeChange = (type) => {
+        setProductType(type);
+        setCurrentPage(1); // Reset trang về 1 khi thay đổi loại sản phẩm
+    };
+
+    // Hàm xử lý thay đổi phạm vi giá
+    const handlePriceRangeChange = (range) => {
+        setPriceRange(range);
+        setCurrentPage(1); // Reset trang về 1 khi thay đổi phạm vi giá
+    };
+
 
     return (
         <div id="ListItem">
-            {/* Search Filter */}
-            <div className="filter-container">
-                <input
-                    id="search"
-                    type="text"
-                    className="filter-input"
-                    placeholder="Search products..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                />
-                <button className="filter-button">Search</button>
-            </div>
+            <div className="ListItem-Container1">
+                {/* Task View Side Panel */}
+                <div className="task-view">
+                    {/* Sort Buttons */}
+                    <div className="sort-buttons">
+                        <h4>Sort by</h4>
+                        <button onClick={() => handleSortChange("name")}>Name (A-Z)</button>
+                        <button onClick={() => handleSortChange("priceLowToHigh")}>Price (Low to High)</button>
+                        <button onClick={() => handleSortChange("priceHighToLow")}>Price (High to Low)</button>
+                        <button onClick={() => handleSortChange("newest")}>Newest</button>
+                    </div>
 
-            {/* Product Listing */}
-            <div className="ListItemPage-Container">
-                <div className="products-container">
-                    {filteredData.length === 0 ? (
-                        <p>No products found.</p>
-                    ) : (
-                        currentItems.map((item, index) => (
-                            <div className="list-item" key={index}>
-                                <Link to={`/Product/Details/${item.title}`} className="list-item-link">
-                                    <img src={item.image} alt={item.title} className="product-image" />
-                                    <div className="product-details">
-                                        <h3 className="product-title">{item.title}</h3>
-                                        <p className="product-description">{item.description}</p>
-                                        <div className="product-price">
-                                            {item.price} {item.currency}
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                        ))
-                    )}
+                    {/* Filter by Product Type */}
+                    <div className="filter-type">
+                        <h4>Filter by Product Type</h4>
+                        <button onClick={() => handleTypeChange("DIY")}>DIY</button>
+                        <button onClick={() => handleTypeChange("Module")}>Module</button>
+                        <button onClick={() => handleTypeChange("")}>All</button>
+                    </div>
+
+                    {/* Price Range Selector */}
+                    <div className="price-range">
+                        <h4>Select Price Range</h4>
+                        <select onChange={(e) => handlePriceRangeChange(e.target.value)} className="price-select">
+                            <option value="">All</option>
+                            <option value="0-200">0₫ - 200₫</option>
+                            <option value="200-500">200₫ - 500₫</option>
+                            <option value="500-1000">500₫ - 1.000₫</option>
+                            <option value="1000-2000">1.000₫ - 2.000₫</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
-            <div className="cart-icon-container">
-                <IoCartOutline className="cart-icon" />
-                <span className="cart-count">{cartCount}</span>
-            </div>
+            <div className="ListItem-Container2">
+                <div className="filter-container">
+                    <input
+                        id="search"
+                        type="text"
+                        className="filter-input"
+                        placeholder="Search products..."
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                    />
+                    <button className="filter-button">Search</button>
+                </div>
 
-            {/* Pagination */}
-            <div className="pagination">
-                {Array.from({ length: totalPages }, (_, index) => (
-                    <button key={index} onClick={() => handlePageChange(index + 1)} className={currentPage === index + 1 ? 'active' : ''}>
-                        {index + 1}
-                    </button>
-                ))}
-            </div>
+                <div className="ListItemPage-Container">
+                    <div className="products-container">
+                        {filteredData.length === 0 ? (
+                            <p>No products found.</p>
+                        ) : (
+                            currentItems.map((item, index) => (
+                                <div className="list-item" key={index}>
+                                    <Link to={`/Product/Details/${item.title}`} className="list-item-link">
+                                        <img src={item.image} alt={item.title} className="product-image" />
+                                        <div className="product-details">
+                                            <h3 className="product-title">{item.title}</h3>
+                                            <p className="product-description">{item.description}</p>
+                                            <div className="product-price">
+                                                {item.price.toLocaleString()} {item.currency}
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                </div>
 
+                <div className="cart-icon-container">
+                    <IoCartOutline className="cart-icon" />
+                    <span className="cart-count">{cartCount}</span>
+                </div>
+
+                <div className="pagination">
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <button key={index} onClick={() => handlePageChange(index + 1)} className={currentPage === index + 1 ? 'active' : ''}>
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }

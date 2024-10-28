@@ -1,31 +1,26 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import "./Header.css"
-
+import "./Header.css";
 import { Link } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
 import SliderCards from "../SliderCards/SliderCards";
-// import { AuthContext } from "../../../pages/Context/AuthContext";
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import { LuUserCog } from "react-icons/lu";
 import { LuBookMarked } from "react-icons/lu";
 import { LuBarChartBig } from "react-icons/lu";
 import { TbBellCheck } from "react-icons/tb";
 import { BiLogOut } from "react-icons/bi";
-import Cookies from "js-cookie"
+import Cookies from "js-cookie";
 import LogoNSHOP from "../../../assets/Logo NSHOP.png";
-
-// import ApiService from "../../../api/ApiService";
 
 export default function Header() {
     const [isDropDown, setIsDropDown] = useState(false);
     const [height, setHeight] = useState('0px');
     const contentDropdownRef = useRef(null);
     const [user, setUser] = useState(null);
-    // const { user } = useContext(AuthContext);
     const [imgUser, setImgUser] = useState(null);
     const [isDropDownUser, setIsDropDownUser] = useState(false);
-    const [searchInput, setSearchInput] = useState('')
-    const [datas, setDatas] = useState([])
+    const [searchInput, setSearchInput] = useState('');
+    const [datas, setDatas] = useState([]);
 
     useEffect(() => {
         if (isDropDown) {
@@ -44,35 +39,25 @@ export default function Header() {
     }, [isDropDown]);
 
     useEffect(() => {
-        setDatas(null)
-        // fetchSearch(1, 6, searchInput)
-    }, [searchInput])
-
+        setDatas(null);
+    }, [searchInput]);
 
     const handleSearchFocus = () => {
         setIsDropDown(true);
     }
-
 
     const handleCancelBtn = () => {
         setIsDropDown(false);
     }
 
     const handleLogOut = () => {
-        Cookies.remove('token')
-        window.location.href = '/'
+        Cookies.remove('token');
+        window.location.href = '/';
     }
 
-    // const fetchSearch = async (page, items, query) => {
-    //     const data = await ApiService.SearchCourses(page, items, query)
-    //     setDatas(data);
-    // }
-
-    const hanldeInputKeyDown = (e) => {
-        console.log('Already put')
+    const handleInputKeyDown = (e) => {
         if (e.key === 'Enter') {
-            // console.log('Already put')
-            window.location.href = `/search?q=${searchInput}&page=1`
+            window.location.href = `/search?q=${searchInput}&page=1`;
         }
     }
 
@@ -85,6 +70,15 @@ export default function Header() {
                     </Link>
                     <span className="title">NSHOP</span>
                 </div>
+
+                {/* Navigation Links */}
+                <nav className="nav-links">
+                    <Link to="/home">Home</Link>
+                    <Link to="/product">Product</Link>
+                    <Link to="/cart">Cart</Link>
+                    <Link to="/profile">Profile</Link>
+                </nav>
+
                 <div className="search-container">
                     <div className="search-bar">
                         <IoSearchOutline />
@@ -94,7 +88,7 @@ export default function Header() {
                             onFocus={handleSearchFocus}
                             value={searchInput}
                             onChange={(e) => { setSearchInput(e.target.value) }}
-                            onKeyDown={hanldeInputKeyDown}
+                            onKeyDown={handleInputKeyDown}
                         />
                     </div>
                 </div>
@@ -106,11 +100,11 @@ export default function Header() {
                         user ? (
                             <div className="user-action" onClick={() => { setIsDropDownUser(prev => !prev) }}>
                                 <div className="user-logo">
-                                    {imgUser ?
+                                    {imgUser ? (
                                         <img src={imgUser} alt="" />
-                                        :
+                                    ) : (
                                         <HiOutlineUserCircle />
-                                    }
+                                    )}
                                 </div>
                                 <div className="user-info">
                                     <p className="name">{user.username}</p>
@@ -160,6 +154,6 @@ export default function Header() {
                     <SliderCards datas={datas} />
                 </div>
             </div>
-        </div >
+        </div>
     );
 }

@@ -1,4 +1,13 @@
 #ListItem {
+  display: flex;
+  flex-direction: row;
+}
+
+#ListItem .ListItem-Container1 {
+  margin-top: 64px;
+}
+
+#ListItem .ListItem-Container2 {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -7,15 +16,16 @@
   width: 100%;
   margin: 0 auto;
   margin-top: 60px;
+  margin-right: 150px;
 }
 
-#ListItem .ListItemPage-Container {
+#ListItem .ListItem-Container2 .ListItemPage-Container {
   background-color: white;
   margin-top: 50px;
 }
 
 /* Filter container */
-#ListItem .filter-container {
+#ListItem .ListItem-Container2 .filter-container {
   margin-bottom: 20px;
   display: flex;
   justify-content: center; /* Căn giữa các phần tử */
@@ -23,7 +33,7 @@
 }
 
 /* Các phần tử bên trong filter-container */
-#ListItem .filter-input {
+#ListItem .ListItem-Container2 .filter-input {
   padding: 10px;
   width: 70%; /* Đảm bảo chiều rộng hợp lý cho input */
   max-width: 850px; /* Thêm kích thước tối đa để tránh kéo dài quá nhiều */
@@ -31,7 +41,7 @@
   border-radius: 4px;
 }
 
-#ListItem .filter-button {
+#ListItem .ListItem-Container2 .filter-button {
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
@@ -42,7 +52,7 @@
 }
 
 /* Danh sách sản phẩm */
-#ListItem .products-container {
+#ListItem .ListItem-Container2 .products-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 cột */
   gap: 50px; /* Giảm khoảng cách giữa các sản phẩm */
@@ -50,7 +60,7 @@
   min-height: 200px; /* Thêm chiều cao tối thiểu cho container */
 }
 
-#ListItem .list-item {
+#ListItem .ListItem-Container2 .list-item {
   width: 100%; /* Chiều rộng đầy đủ trong cột */
   max-width: 200px; /* Kích thước tối đa của mỗi sản phẩm */
   border: 1px solid #ddd;
@@ -63,18 +73,18 @@
   flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc */
 }
 
-#ListItem .list-item:hover {
+#ListItem .ListItem-Container2 .list-item:hover {
   transform: translateY(-5px);
 }
 
-#ListItem .list-item-link {
+#ListItem .ListItem-Container2 .list-item-link {
   text-decoration: none;
   color: inherit;
   display: block;
 }
 
 /* Placeholder cho hình ảnh sản phẩm */
-#ListItem .product-image {
+#ListItem .ListItem-Container2 .product-image {
   width: 100%;
   height: 180px; /* Chiều cao hình ảnh */
   background-color: #f0f0f0; /* Màu nền cho chỗ trống */
@@ -86,7 +96,7 @@
 }
 
 /* Chi tiết sản phẩm */
-#ListItem .product-details {
+#ListItem .ListItem-Container2 .product-details {
   padding: 10px;
   display: flex;
   flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc */
@@ -95,21 +105,21 @@
   height: 150px; /* Chiều cao tối đa để đảm bảo căn chỉnh đồng đều */
 }
 
-#ListItem .product-title {
+#ListItem .ListItem-Container2 .product-title {
   font-size: 14px;
   font-weight: bold;
   margin: 0;
   color: #333;
 }
 
-#ListItem .product-description {
+#ListItem .ListItem-Container2 .product-description {
   font-size: 12px;
   color: #666;
   margin: 5px 0; /* Thêm khoảng cách dưới */
   margin-top: auto;
 }
 
-#ListItem .product-price {
+#ListItem .ListItem-Container2 .product-price {
   font-size: 16px;
   font-weight: bold;
   color: #ff5722;
@@ -117,13 +127,13 @@
 }
 
 /* Phân trang */
-#ListItem .pagination {
+#ListItem .ListItem-Container2 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-#ListItem .pagination button {
+#ListItem .ListItem-Container2 .pagination button {
   margin: 0 5px;
   padding: 8px 12px;
   border: none;
@@ -132,13 +142,13 @@
   cursor: pointer;
 }
 
-#ListItem .pagination button.active {
+#ListItem .ListItem-Container2 .pagination button.active {
   background-color: #ff5722;
   color: white;
 }
 
 /* Định vị biểu tượng giỏ hàng ở góc dưới bên phải */
-#ListItem .cart-icon-container {
+#ListItem .ListItem-Container2 .cart-icon-container {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -151,16 +161,79 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#ListItem .cart-icon {
+#ListItem .ListItem-Container2 .cart-icon {
   font-size: 24px;
   color: #333;
 }
 
-#ListItem .cart-count {
+#ListItem .ListItem-Container2 .cart-count {
   margin-left: 8px;
   font-size: 16px;
   background-color: red;
   color: white;
   padding: 4px 8px;
   border-radius: 50%;
+}
+
+#ListItem .ListItem-Container1 .task-view {
+  position: sticky; /* Giữ thanh bên ở vị trí */
+  top: 0; /* Bắt đầu dính ở đỉnh của khung nhìn */
+  width: 250px; /* Width of the sidebar */
+  padding: 20px; /* Inner spacing */
+  background-color: #ffffff; /* Background color */
+  border-right: 1px solid #ddd; /* Right border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+  color: #333; /* Main text color */
+  border-radius: 8px; /* Rounded corners */
+}
+
+#ListItem .ListItem-Container1 h4 {
+  margin: 20px 0 10px; /* Spacing above and below sub-titles */
+  font-size: 18px; /* Subtitle font size */
+  font-weight: bold; /* Bold subtitle */
+}
+
+#ListItem .ListItem-Container1 .sort-buttons,
+#ListItem .ListItem-Container1 .filter-type,
+#ListItem .ListItem-Container1 .price-range {
+  margin-top: 20px; /* Top spacing between sections */
+}
+
+#ListItem .ListItem-Container1 .sort-buttons button,
+#ListItem .ListItem-Container1 .filter-type button,
+#ListItem .ListItem-Container1 .price-range .price-select {
+  margin: 5px 0; /* Spacing between buttons and select */
+  padding: 12px; /* Button height */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  width: 100%; /* Full width */
+  font-size: 14px; /* Font size for buttons */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
+}
+
+#ListItem .ListItem-Container1 .sort-buttons button:hover,
+#ListItem .ListItem-Container1 .filter-type button:hover {
+  background-color: #0056b3; /* Darker background on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+#ListItem .ListItem-Container1 .price-range .price-select {
+  padding: 10px; /* Inner padding for select */
+  border: 1px solid #ddd; /* Border for select */
+  border-radius: 4px; /* Rounded corners for select */
+  width: 100%; /* Full width */
+  font-size: 14px; /* Font size for select */
+  color: #333; /* Text color */
+  background-color: #fff; /* Background color */
+}
+
+#ListItem .ListItem-Container1 .price-range label {
+  font-size: 14px; /* Label font size */
+  color: #555; /* Label color */
+  margin-bottom: 5px; /* Spacing below the label */
+  display: block; /* Make labels block for clear separation */
 }
