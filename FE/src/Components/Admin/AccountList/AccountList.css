@@ -1,7 +1,5 @@
-/* Định dạng cho AccountList */
 #AccountList {
-    margin-left: 290px;
-    margin-right: 50px;
+    margin: 50px 50px 0 290px;
 }
 
 #AccountList .accounts-container {
@@ -132,4 +130,106 @@
 
 #AccountList .modal-content button:last-child:hover {
     color: darkred;
+}
+
+#AccountList .lock-btn {
+    margin-left: 5px;
+    color: #ffc107;
+    border: 1px solid #ffc107;
+    background-color: transparent;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+
+#AccountList .accounts-header .header-actions .search-input {
+    background-color: white;
+    color: black;
+}
+
+#AccountList .modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    max-width: 90%;
+    min-height: 350px;
+}
+
+#AccountList .modal-content h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+#AccountList .modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: black;
+    font-size: 16px;
+}
+
+#AccountList .modal-content .button-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#AccountList .modal-content button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#AccountList .modal-content button:hover {
+    background-color: #0056b3;
+}
+
+#AccountList .modal-content button:last-child {
+    background-color: transparent;
+    color: #dc3545;
+    border: none;
+}
+
+#AccountList .modal-content button:last-child:hover {
+    color: darkred;
+}
+
+#AccountList .modal-overlay .modal-content .input-group .name {
+    padding: 10px 45px 0 0;
+}
+
+#AccountList .modal-overlay .modal-content .input-group .email {
+    padding: 10px 49px 0 0;
+}
+
+#AccountList .modal-overlay .modal-content .input-group .location {
+    padding: 10px 25px 0 0;
+}
+
+#AccountList .modal-overlay .modal-content .input-group .phone {
+    padding: 10px 42px 0 0;
+}
+
+#AccountList .search-input {
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    color: #333;
+    transition: border-color 0.3s ease;
+    width: 300px;
+}
+
+#AccountList .search-input:focus {
+    border-color: #0056b3;
+    outline: none;
+    background-color: #fff;
 }
