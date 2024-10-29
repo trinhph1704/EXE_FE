@@ -1,15 +1,15 @@
 /* sidebar */
 #Sidebar {
   width: 250px;
-    min-width: 250px;
-    height: 100%;
-    position: fixed;
-    z-index: 10;
+  min-width: 250px;
+  height: 100%;
+  position: fixed;
+  z-index: 10;
 }
 
 #Sidebar .sidebars {
   width: 250px;
-  background-color: #2b2b2b;
+  background-color: #e0dddd;
   color: var(--clr-light-text);
   padding: 20px;
   height: 100vh;
@@ -23,7 +23,7 @@
   justify-content: flex-start;
   align-items: center;
   column-gap: 16px;
-  color: white;
+  color: rgb(5, 5, 5);
 }
 
 #Sidebar .info-name {
@@ -92,19 +92,19 @@
 }
 
 #Sidebar .nav-link.active {
-  background-color: #fe6c00;
+  background-color: #a5a2a0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 #Sidebar .nav-link-icon {
   width: 22px;
-  color: white;
+  color: rgb(14, 13, 13);
 }
 
 #Sidebar .nav-link-text {
   text-transform: capitalize;
-  color: white;
+  color: rgb(19, 18, 18);
 }
 
 @media screen and (max-width: 1400px) {
@@ -171,10 +171,10 @@
   padding: 0;
   margin: 0;
 }
+
 #Sidebar .nav-item.active .nav-link {
-  background-color: #fe6c00; /* Màu nền cho tab đang được chọn */
+  background-color: #b8b5b2;
+  /* Màu nền cho tab đang được chọn */
   color: white;
   border-radius: 8px;
 }
-
-

@@ -11,16 +11,15 @@ export default function AdminPage() {
     return (
         <div id="AdminPage">
             <div className="AdminPage-Container">
-                <Sidebar/>
-            <div className="Sidebar-Dashboard">
-            <Sidebar setActiveTab={setActiveTab} activeTab={activeTab} />
+                <Sidebar />
+                <div className="Sidebar-Dashboard">
+                    <Sidebar setActiveTab={setActiveTab} activeTab={activeTab} />
                     <div className="Content">
                         {activeTab === "Dashboard" && <Dashboard />}
                         {activeTab === "Account" && <AccountList />}
                         {activeTab === "Item" && <ProductList />}
                     </div>
-                    </div>
-
+                </div>
             </div>
         </div>
     )

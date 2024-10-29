@@ -2,17 +2,20 @@
     background-color: ghostwhite;
     width: 100%;
 }
+
 #AdminPage .AdminPage-Container {
     display: flex;
     flex-direction: column;
 }
+
 #AdminPage .Sidebar-Dashboard {
-    position: relative; 
+    position: relative;
     display: flex;
     width: 100%;
-    height: 100vh; 
-    
+    height: 100vh;
+
 }
-#AdminPage .Sidebar-Dashboard > * {
+
+#AdminPage .Sidebar-Dashboard>* {
     flex: 1;
 }

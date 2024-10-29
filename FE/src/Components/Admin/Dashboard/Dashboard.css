@@ -1,7 +1,7 @@
 /* Global Styles */
 #Dashboard {
     display: flow-root;
-    background-color: #1e1611;
+    background-color: #ffffff;
     position: fixed;
     top: 0;
     right: 0px;
@@ -141,10 +141,10 @@
     font-size: 16px;
     margin-bottom: 12px;
     font-weight: 500;
-    color: #f5f5f5;
+    color: #000000;
 }
 
-/* Table Styles */
+
 #Dashboard .table-container table {
     width: 100%;
     border-collapse: collapse;
@@ -164,12 +164,11 @@
     color: #f5f5f5;
 }
 
-/* Pie Chart Styles */
+
 #Dashboard .pie-chart-card {
     text-align: center;
 }
 
-/* Updated Text Colors and Font Sizes */
 #Dashboard body,
 #Dashboard .header h1,
 #Dashboard .kpi-card h2,
@@ -181,4 +180,44 @@
 #Dashboard .table-container td {
     color: #f5f5f5;
     font-size: 15px;
+}
+
+
+#Dashboard .kpi-card {
+    background-color: #a9a9a9;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(199, 197, 197, 0.3);
+    text-align: center;
+}
+
+#Dashboard .kpi-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #000000;
+}
+
+#Dashboard .kpi-card h2 {
+    margin: 8px 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#Dashboard .chart-card,
+#Dashboard .pie-chart-card {
+    background-color: #a9a9a9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    width: 565px;
+}
+
+#Dashboard .chart-card h3,
+#Dashboard .pie-chart-card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: #000000;
+
 }
