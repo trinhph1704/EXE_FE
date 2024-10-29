@@ -115,7 +115,6 @@ const AccountList = () => {
                 <h2>Accounts</h2>
                 <div className="header-actions">
                     <button className="add-account-btn" onClick={() => setIsModalOpen(true)}>Add Account</button>
-                    <button className="view-toggle-btn">&#9776;</button>
                     <input
                         type="text"
                         placeholder="Search Accounts"
@@ -128,6 +127,7 @@ const AccountList = () => {
             <table className="accounts-table">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Location</th>
@@ -136,8 +136,9 @@ const AccountList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredAccounts.map((account) => (
+                    {filteredAccounts.map((account, index) => (
                         <tr key={account.id}>
+                            <td>{index + 1}</td>
                             <td>{account.name}</td>
                             <td>{account.email}</td>
                             <td>{account.location}</td>
