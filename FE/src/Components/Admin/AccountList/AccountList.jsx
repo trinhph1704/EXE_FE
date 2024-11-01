@@ -204,10 +204,10 @@ const AccountList = () => {
                             />
                         </div>
                         <div className="button-container">
-                            <button onClick={isEditing ? handleUpdateAccount : handleAddAccount}>
+                            <button className='btn-add' onClick={isEditing ? handleUpdateAccount : handleAddAccount}>
                                 {isEditing ? "Update Account" : "Add Account"}
                             </button>
-                            <button onClick={resetForm}>Cancel</button>
+                            <button className='btn-cancel' onClick={resetForm}>Cancel</button>
                         </div>
                     </div>
                 </div>

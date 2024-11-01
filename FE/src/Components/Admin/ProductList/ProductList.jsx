@@ -159,7 +159,7 @@ const ProductList = () => {
                     <div className="modal-content">
                         <h3>{isEditing ? "Edit item" : "Add New Item"}</h3>
                         <div className="input-group">
-                            <label htmlFor="image">Image URL</label>
+                            <label className='image-title' htmlFor="image">Image URL</label>
                             <input
                                 type="text"
                                 id="image"
@@ -170,7 +170,7 @@ const ProductList = () => {
                             />
                         </div>
                         <div className="input-group">
-                            <label htmlFor="name">Name</label>
+                            <label className='name-title' htmlFor="name">Name</label>
                             <input
                                 type="text"
                                 id="name"
@@ -181,7 +181,7 @@ const ProductList = () => {
                             />
                         </div>
                         <div className="input-group">
-                            <label htmlFor="quantity">Quantity</label>
+                            <label className='quantity-title' htmlFor="quantity">Quantity</label>
                             <input
                                 type="number"
                                 id="quantity"
@@ -192,7 +192,7 @@ const ProductList = () => {
                             />
                         </div>
                         <div className="input-group">
-                            <label htmlFor="price">Price</label>
+                            <label className='price-title' htmlFor="price">Price</label>
                             <input
                                 type="text"
                                 id="price"
@@ -203,8 +203,9 @@ const ProductList = () => {
                             />
                         </div>
                         <div className="input-group">
-                            <label htmlFor="description">Description</label>
+                            <label className='description-title' htmlFor="description">Description</label>
                             <textarea
+                                className='description-text'
                                 id="description"
                                 name="description"
                                 placeholder="Description"
@@ -216,7 +217,7 @@ const ProductList = () => {
                             <button onClick={isEditing ? handleUpdateItem : handleAddItem}>
                                 {isEditing ? "Update item" : "Add item"}
                             </button>
-                            <button onClick={resetForm}>Cancel</button>
+                            <button className='btn-cancel' onClick={resetForm}>Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -226,7 +227,7 @@ const ProductList = () => {
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <h3>{currentItem?.name}</h3>
-                        <img src={currentItem?.image} alt={currentItem?.name} style={{ width: '100px', height: '100px' }} />
+                        <img className='img' src={currentItem?.image} alt={currentItem?.name} style={{ width: '30%', height: '30%' }} />
                         <p><strong>Price:</strong> {currentItem?.price.toLocaleString('vi-VN')} VNĐ</p>
                         <p><strong>Quantity:</strong> {currentItem?.quantity}</p>
                         <p><strong>Description:</strong><br />{currentItem?.description}</p>

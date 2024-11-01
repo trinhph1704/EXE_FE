@@ -144,6 +144,9 @@
 #ProductList .items-header .header-actions .search-input {
     background-color: white;
     color: black;
+    border-radius: 10px;
+    width: 350px;
+    height: 44px;
 }
 
 #ProductList .modal-content {
@@ -261,7 +264,7 @@
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 600px;
+    width: 900px;
     max-width: 90%;
     min-height: 650px;
 }
@@ -327,4 +330,54 @@
 
 #ProductList .modal-content p.description {
     margin-top: 10px;
+}
+
+#ProductList .modal-overlay .modal-content .input-group .image-title {
+    width: 160px;
+    padding-top: 10px;
+}
+
+#ProductList .modal-overlay .modal-content .input-group .name-title {
+    width: 160px;
+    padding-top: 10px;
+}
+
+#ProductList .modal-overlay .modal-content .input-group .quantity-title {
+    width: 160px;
+    padding-top: 10px;
+}
+
+#ProductList .modal-overlay .modal-content .input-group .price-title {
+    width: 160px;
+    padding-top: 10px;
+}
+
+#ProductList .modal-overlay .modal-content .input-group .description-title {
+    width: 135px;
+    padding-top: 10px;
+}
+
+#ProductList .modal-overlay .modal-content .input-group .description-text {
+    width: 900px;
+    padding-top: 10px;
+    height: 200px;
+    margin-left: 27px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: black;
+}
+
+#ProductList .modal-overlay .modal-content .button-container .btn-cancel {
+    border: 1px solid red;
+}
+
+#ProductList .modal-overlay .modal-content .button-container .btn-cancel:hover {
+    border: 1px solid red;
+    background-color: rgb(235, 120, 120);
+}
+
+#ProductList .modal-overlay .modal-content .img {
+    position: static;
+    margin-left: 305px;
 }

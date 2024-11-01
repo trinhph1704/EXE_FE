@@ -144,6 +144,9 @@
 #AccountList .accounts-header .header-actions .search-input {
     background-color: white;
     color: black;
+    border-radius: 10px;
+    width: 350px;
+    height: 44px;
 }
 
 #AccountList .modal-content {
@@ -232,4 +235,35 @@
     border-color: #0056b3;
     outline: none;
     background-color: #fff;
+}
+
+#AccountList .modal-overlay .modal-content .button-container .btn-cancel {
+    border: 1px solid red;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 50%;
+    margin-top: 20px;
+}
+
+#AccountList .modal-overlay .modal-content .button-container .btn-cancel:hover {
+    border: 1px solid red;
+    background-color: rgb(235, 120, 120);
+}
+
+#AccountList .modal-overlay .modal-content .button-container .btn-add {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 50%;
+    margin-top: 20px;
+}
+
+#AccountList .modal-overlay .modal-content .button-container .btn-add:hover {
+    background-color: #1161b6;
 }
