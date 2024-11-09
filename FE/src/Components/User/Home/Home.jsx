@@ -1,51 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./../Home/Home.css"; // Đảm bảo bạn đã tạo file CSS cho trang này
 
-import Logo from '/src/assets/Logo NSHOP.png';
-import P21 from '/src/assets/Product/21.jpg';
-import P22 from '/src/assets/Product/22.jpg';
-import P23 from '/src/assets/Product/23.jpg';
-import P24 from '/src/assets/Product/24.jpg';
-import P25 from '/src/assets/Product/25.jpg';
-import P26 from '/src/assets/Product/26.jpg';
+import Logo from '../../../assets/Logo NSHOP.png';
+import P21 from '../../../assets/Product/21.jpg';
+import P22 from '../../../assets/Product/22.jpg';
+import P23 from '../../../assets/Product/23.jpg';
 
-
-
-
-// Dữ liệu giả
-const fakeData = [
-    {
-        id: 1,
-        image: P24,
-        title: "Combo tự chế máy rót rượu tự động V1",
-        price: "220.000₫"
-    },
-    {
-        id: 2,
-        image: P24,
-        title: "Combo tự chế máy rót rượu tự động V2",
-        price: "257.000₫"
-    },
-    {
-        id: 3,
-        image: P25,
-        title: "Combo tự làm xe 3 bánh tránh vật cản Arduino",
-        price: "369.000₫"
-    },
-    {
-        id: 4,
-        image: P26,
-        title: "Combo xe đa hướng Arduino - Điều khiển bluetooth",
-        price: "1.240.000₫"
-    }
-];
-
-const newArrivals = {
-    image: P22,
-    title: "Arduino UNO R4 Minima (UNO R3 nâng cấp)",
-};
 
 export default function Home() {
+    const [products, setProducts] = useState([]); // State để lưu trữ danh sách sản phẩm
+
+    // Fetch dữ liệu các sản phẩm từ API khi component render
+    useEffect(() => {
+        fetch("http://localhost:5000/products")
+            .then((response) => response.json()) // Chuyển response thành JSON
+            .then((data) => setProducts(data)) // Cập nhật state với dữ liệu lấy từ API
+            .catch((error) => console.error("Error fetching products:", error)); // Xử lý lỗi
+    }, []); // Chỉ chạy khi component được render lần đầu
+
+    // Dữ liệu cho sản phẩm mới
+    const newArrivals = {
+        image: P22,
+        title: "Arduino UNO R4 Minima (UNO R3 nâng cấp)",
+    };
+
     return (
         <div id="Home">
             {/* Phần chứa ảnh nền chính */}
@@ -55,7 +33,7 @@ export default function Home() {
                         <h1>NShop</h1>
                     </div>
                     <div className="Home-Container1-Image">
-                        <img src={Logo} alt="" />
+                        <img src={Logo} alt="Logo" />
                     </div>
                 </div>
 
@@ -81,13 +59,20 @@ export default function Home() {
                         Find a bright idea to suit your taste with our great selection of suspension, floor, and table lights.
                     </p>
                     <div className="product-list">
-                        {fakeData.map(product => (
-                            <div className="product-item" key={product.id}>
-                                <img src={product.image} alt={product.title} />
-                                <p>{product.title}</p>
-                                <p className="price">{product.price}</p>
-                            </div>
-                        ))}
+                        {/* Lọc danh sách sản phẩm để chỉ hiển thị sản phẩm có id từ 1 đến 4 */}
+                        {products.length > 0 ? (
+                            products
+                                .filter((product) => product.id >= 1 && product.id <= 4) // Lọc sản phẩm theo id
+                                .map((product) => (
+                                    <div className="product-item" key={product.id}>
+                                        <img src={product.image} alt={product.title} />
+                                        <p>{product.title}</p>
+                                        <p className="price">{product.price}</p>
+                                    </div>
+                                ))
+                        ) : (
+                            <p>Loading products...</p> // Hiển thị khi đang load dữ liệu
+                        )}
                     </div>
                     <a href="/Product" className="view-more-link">View More</a>
                 </div>

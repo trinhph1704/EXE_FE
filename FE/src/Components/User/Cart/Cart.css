@@ -124,8 +124,12 @@
 
 #Cart-Container .product-description {
   font-size: 0.875rem;
-  margin-bottom: 10px;
-  color: #6c757d; /* Màu xám nhạt cho mô tả sản phẩm */
+    margin-bottom: 10px;
+    color: #6c757d;
+    white-space: nowrap;        /* Không xuống dòng */
+    overflow: hidden;           /* Ẩn phần tràn */
+    text-overflow: ellipsis;    /* Thêm dấu ... khi tràn */
+    max-width: 100%;            /* Đảm bảo nằm trong khung */
 }
 
 #Cart-Container .product-price {

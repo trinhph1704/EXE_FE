@@ -22,7 +22,7 @@
   background-size: 55%; /* hoặc một kích thước cụ thể như 300px 200px */
 }
 
-.login-container {
+#LoginPage .login-container {
   width: 400px;
   margin: 0 auto;
   border-radius: 0.5rem;
@@ -31,22 +31,22 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.form-title {
+#LoginPage .form-title {
   text-align: center;
   font-size: 1.37rem;
   font-weight: 600;
   margin-bottom: 1.87rem;
 }
 
-.social-login {
+#LoginPage .social-login {
   display: flex;
   gap: 1.31rem;
 }
 
-.social-button {
+#LoginPage .social-button {
   display: flex;
   width: 100%;
-  height: 45px; /* Set a specific height */
+  height: 55px; /* Set a specific height */
   gap: 0.5rem;
   cursor: pointer;
   font-size: 0.9rem;
@@ -60,18 +60,18 @@
   transition: 0.3s ease;
 }
 
-.social-button:hover {
+#LoginPage .social-button:hover {
   background: #f1eff9;
   border-color: #5f41e4;
 }
 
-.separator {
+#LoginPage .separator {
   margin: 1.5rem 0;
   text-align: center;
   position: relative;
 }
 
-.separator span {
+#LoginPage .separator span {
   background: #fff;
   z-index: 1;
   padding: 0 0.5rem;
@@ -80,8 +80,8 @@
   position: relative;
 }
 
-.separator::before,
-.separator::after {
+#LoginPage .separator::before,
+#LoginPage .separator::after {
   position: absolute;
   content: "";
   top: 50%;
@@ -90,16 +90,16 @@
   background: #bfb3f2;
 }
 
-.separator::before {
+#LoginPage .separator::before {
   left: 0;
 }
 
-.separator::after {
+#LoginPage .separator::after {
   right: 0;
   width: calc(100% - 2rem);
 }
 
-.login-form {
+#LoginPage .login-form {
   width: 100%;
 }
 
@@ -132,7 +132,7 @@
   pointer-events: none;
 }
 
-.forgot-password-link {
+#LoginPage .forgot-password-link {
   display: block;
   text-align: center;
   margin: 1rem 0;
@@ -141,25 +141,25 @@
   text-decoration: none;
 }
 
-.forgot-password-link:hover {
+#LoginPage.forgot-password-link:hover {
   text-decoration: underline;
 }
 
-.signup-text {
+#LoginPage .signup-text {
   text-align: center;
   margin-top: 1.5rem;
 }
 
-.signup-text a {
+#LoginPage .signup-text a {
   color: #5f41e4;
   text-decoration: none;
 }
 
-.signup-text a:hover {
+#LoginPage.signup-text a:hover {
   text-decoration: underline;
 }
 
-.login-button {
+#LoginPage .login-button {
   width: 100%;
   height: 54px;
   background: #5f41e4;
@@ -172,6 +172,12 @@
   transition: background 0.3s ease;
 }
 
-.login-button:hover {
+#LoginPage .login-button:hover {
   background: #4d36b6;
+}
+
+#LoginPage .error-message {
+  color: red;
+  margin-top: 10px;
+  margin-left: 30px;
 }

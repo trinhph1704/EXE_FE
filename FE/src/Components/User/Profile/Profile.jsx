@@ -1,54 +1,83 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './../Profile/Profile.css';
-
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
-
-const initialData = {
-    name: "Hembo Tingor",
-    role: "New User",
-    email: "rntng@gmail.com",
-    phone: "98979989898",
-    address: "6th Floor, OneHub Saigon, High-Tech Park, Tan Phu Ward, District 9, Ho Chi Minh City",
-    socialLinks: {
-        facebook: "#!",
-        twitter: "#!",
-        instagram: "#!"
-    },
-    recentOrders: [
-        {
-            order: "123456",
-            date: "29-09-2024",
-            status: "Delivered",
-            total: "$129.99"
-        },
-        {
-            order: "987654",
-            date: "10-10-2024",
-            status: "In Transit",
-            total: "$89.99"
-        }
-    ]
-};
-
 export default function Profile() {
-    const [profileData, setProfileData] = useState(initialData);
+    const [profileData, setProfileData] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [newImageUrl, setNewImageUrl] = useState("https://img.icons8.com/bubbles/100/000000/user.png");
+
+    useEffect(() => {
+        const storedUser = JSON.parse(localStorage.getItem('userId'));
+        if (storedUser && storedUser.email) {
+            fetchProfileData(storedUser.email);
+        } else {
+            setProfileData({
+                name: '',
+                email: '',
+                role: '',
+                phone: '',
+                address: '',
+                cart: [],
+                orders: []  // Initialize with an empty array
+            });
+        }
+    }, []);
+
+    const fetchProfileData = async (email) => {
+        try {
+            const response = await fetch('http://localhost:5000/users');
+            const users = await response.json();
+            const user = users.find((user) => user.email === email);
+            if (user) {
+                setProfileData(user);
+                setNewImageUrl(user.imageUrl || newImageUrl);
+            } else {
+                console.error("User not found.");
+            }
+        } catch (error) {
+            console.error("Error fetching profile data:", error);
+        }
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProfileData({ ...profileData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setIsEditing(false);
-    };
-
     const handleImageChange = (e) => {
         setNewImageUrl(e.target.value);
     };
+
+    const updateProfileData = async () => {
+        try {
+            const updatedData = { ...profileData, imageUrl: newImageUrl };
+
+            const response = await fetch(`http://localhost:5000/users/${profileData.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedData)
+            });
+
+            if (response.ok) {
+                alert("Profile updated successfully!");
+            } else {
+                console.error("Failed to update profile.");
+            }
+        } catch (error) {
+            console.error("Error updating profile:", error);
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        updateProfileData();
+        setIsEditing(false);
+    };
+
+    if (!profileData) return <div>Loading...</div>;
 
     return (
         <div id="Profile">
@@ -66,17 +95,17 @@ export default function Profile() {
                                         <p>{profileData.role}</p>
                                         <ul className="social-links">
                                             <li>
-                                                <a href={profileData.socialLinks.facebook} title="facebook">
+                                                <a href={profileData.socialLinks?.facebook || '#'} title="facebook">
                                                     <FaFacebook size={20} color="#E6E6FA" />
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href={profileData.socialLinks.twitter} title="twitter">
+                                                <a href={profileData.socialLinks?.twitter || '#'} title="twitter">
                                                     <FaTwitter size={20} color="#E6E6FA" />
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href={profileData.socialLinks.instagram} title="instagram">
+                                                <a href={profileData.socialLinks?.instagram || '#'} title="instagram">
                                                     <FaInstagram size={20} color="#E6E6FA" />
                                                 </a>
                                             </li>
@@ -118,6 +147,7 @@ export default function Profile() {
                                                 />
                                                 <input
                                                     type="text"
+                                                    value={newImageUrl}
                                                     onChange={handleImageChange}
                                                     placeholder="Profile Image URL"
                                                 />
@@ -147,28 +177,46 @@ export default function Profile() {
                                                 </div>
                                             </div>
                                             <div className="info-block">
-                                                <h6 className="section-title">Recent Orders</h6>
-                                                {profileData.recentOrders.map((orderData, index) => (
-                                                    <div className="info-row" key={index}>
-                                                        <div className="info-column">
-                                                            <p>Order </p>
-                                                            <h6 className="text-muted">{orderData.order}</h6>
-                                                        </div>
-                                                        <div className="info-column">
-                                                            <p>Date</p>
-                                                            <h6 className="text-muted">{orderData.date}</h6>
-                                                        </div>
-                                                        <div className="info-column">
-                                                            <p>Status</p>
-                                                            <h6 className="text-muted">{orderData.status}</h6>
-                                                        </div>
-                                                        <div className="info-column">
-                                                            <p>Total</p>
-                                                            <h6 className="text-muted">{orderData.total}</h6>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
+    <h6 className="section-title">Recent Orders</h6>
+    
+    {/* Header hàng tiêu đề */}
+    <div className="info-row header-row">
+        <div className="info-column">
+            <p>Order</p>
+        </div>
+        <div className="info-column">
+            <p>Date</p>
+        </div>
+        <div className="info-column">
+            <p>Status</p>
+        </div>
+        <div className="info-column">
+            <p>Total</p>
+        </div>
+    </div>
+
+    {/* Nội dung đơn hàng */}
+    {profileData.orders && profileData.orders.length > 0 ? (
+        profileData.orders.map((orderData, index) => (
+            <div className="info-row" key={index}>
+                <div className="info-column">
+                    <h6 className="text-muted">{orderData.orderId}</h6>
+                </div>
+                <div className="info-column">
+                    <h6 className="text-muted">{orderData.date}</h6>
+                </div>
+                <div className="info-column">
+                    <h6 className="text-muted">{orderData.status}</h6>
+                </div>
+                <div className="info-column">
+                    <h6 className="text-muted">{orderData.total}</h6>
+                </div>
+            </div>
+        ))
+    ) : (
+        <p>No recent orders available.</p>
+    )}
+</div>
 
                                             <button className="edit-profile" onClick={() => setIsEditing(true)}>
                                                 Edit Profile

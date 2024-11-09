@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
-import SliderCards from "../SliderCards/SliderCards";
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import { LuUserCog } from "react-icons/lu";
 import { LuBookMarked } from "react-icons/lu";
@@ -11,6 +10,7 @@ import { TbBellCheck } from "react-icons/tb";
 import { BiLogOut } from "react-icons/bi";
 import Cookies from "js-cookie";
 import LogoNSHOP from "../../../assets/Logo NSHOP.png";
+import SliderCards from "../SliderCards/SliderCards";
 
 export default function Header() {
     const [isDropDown, setIsDropDown] = useState(false);
@@ -21,6 +21,16 @@ export default function Header() {
     const [isDropDownUser, setIsDropDownUser] = useState(false);
     const [searchInput, setSearchInput] = useState('');
     const [datas, setDatas] = useState([]);
+    const [isSearchActive, setIsSearchActive] = useState(false); // Đảm bảo theo dõi trạng thái tìm kiếm
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const storedUser = JSON.parse(localStorage.getItem('userId'));
+        if (storedUser) {
+            setUser(storedUser);
+            setImgUser(storedUser.imgUser || null);
+        }
+    }, []);
 
     useEffect(() => {
         if (isDropDown) {
@@ -44,22 +54,28 @@ export default function Header() {
 
     const handleSearchFocus = () => {
         setIsDropDown(true);
-    }
+        setIsSearchActive(true);  // Đặt trạng thái tìm kiếm khi ô tìm kiếm được focus
+    };
 
     const handleCancelBtn = () => {
-        setIsDropDown(false);
-    }
+        setSearchInput(''); // Xóa dữ liệu tìm kiếm khi nhấn "Hủy"
+        setIsSearchActive(false);  // Đặt trạng thái tìm kiếm về false khi hủy
+        setIsDropDown(false);  // Đóng dropdown
+    };
 
     const handleLogOut = () => {
+        localStorage.removeItem('user');
         Cookies.remove('token');
-        window.location.href = '/';
-    }
+        setUser(null);
+        setImgUser(null);
+        navigate('/login');
+    };
 
     const handleInputKeyDown = (e) => {
         if (e.key === 'Enter') {
-            window.location.href = `/search?q=${searchInput}&page=1`;
+            navigate(`/search?q=${searchInput}&page=1`);
         }
-    }
+    };
 
     return (
         <div id="header">
@@ -68,6 +84,7 @@ export default function Header() {
                     <Link to="/home" className="logo-link">
                         <img src={LogoNSHOP} alt="" className="logo" />
                     </Link>
+                    
                     <span className="title">NSHOP</span>
                 </div>
 
@@ -75,8 +92,6 @@ export default function Header() {
                 <nav className="nav-links">
                     <Link to="/home">Home</Link>
                     <Link to="/product">Product</Link>
-                    <Link to="/cart">Cart</Link>
-                    <Link to="/profile">Profile</Link>
                 </nav>
 
                 <div className="search-container">
@@ -94,55 +109,65 @@ export default function Header() {
                 </div>
 
                 <div className="action-button">
-                    {isDropDown ? (
+                    {/* Nút Hủy chỉ hiển thị khi có sự kiện tìm kiếm */}
+                    {isSearchActive && (
                         <div className="cancel-btn" onClick={handleCancelBtn}>CANCEL</div>
-                    ) : (
-                        user ? (
-                            <div className="user-action" onClick={() => { setIsDropDownUser(prev => !prev) }}>
-                                <div className="user-logo">
-                                    {imgUser ? (
-                                        <img src={imgUser} alt="" />
-                                    ) : (
-                                        <HiOutlineUserCircle />
-                                    )}
-                                </div>
-                                <div className="user-info">
-                                    <p className="name">{user.username}</p>
-                                    <p className="email">{user.email}</p>
-                                </div>
-                                <div className={`user-dropdown ${isDropDownUser ? 'active' : ''}`}>
-                                    <div className="dropdown-container">
-                                        <div className="arrow"></div>
-                                        <div className="notification special-block">
-                                            <TbBellCheck />
-                                            Notification
-                                        </div>
-                                        <a href="/student/profile" className="selection-block">
-                                            <LuUserCog />
-                                            Account Profile
-                                        </a>
-                                        <a href="/student/my-learning/completed" className="selection-block">
-                                            <LuBookMarked />
-                                            My Learning
-                                        </a>
-                                        <a href="/" className="selection-block">
-                                            <LuBarChartBig />
-                                            Dashboard
-                                        </a>
-                                        <div className="logout special-block" onClick={handleLogOut}>
-                                            <BiLogOut />
-                                            Log Out
-                                        </div>
+                    )}
+
+                    {/* Hiển thị phần người dùng nếu đã đăng nhập */}
+                    {user ? (
+                        <div className="user-action" onClick={() => setIsDropDownUser(prev => !prev)}>
+                            {/* Logo người dùng */}
+                            <div className="user-logo">
+                                {imgUser ? (
+                                    <img src={imgUser} alt="User" />
+                                ) : (
+                                    <HiOutlineUserCircle />
+                                )}
+                            </div>
+
+                            {/* Thông tin người dùng */}
+                            <div className="user-info">
+                                <p className="name">{user.name}</p>
+                            </div>
+
+                            {/* Dropdown chứa các tùy chọn của người dùng */}
+                            <div className={`user-dropdown ${isDropDownUser ? 'active' : ''}`}>
+                                <div className="dropdown-container">
+                                    {/* Mũi tên chỉ xuống */}
+                                    <div className="arrow"></div>
+
+                                    {/* Các mục menu */}
+                                    <div className="notification special-block">
+                                        <TbBellCheck />
+                                        Notification
+                                    </div>
+                                    <a href="/profile" className="selection-block">
+                                        <LuUserCog />
+                                        Account Profile
+                                    </a>
+                                    <a href="/cart" className="selection-block">
+                                        <LuBarChartBig />
+                                        Cart
+                                    </a>
+
+                                    {/* Nút đăng xuất */}
+                                    <div className="logout special-block" onClick={handleLogOut}>
+                                        <BiLogOut />
+                                        Log Out
                                     </div>
                                 </div>
                             </div>
-                        ) : (
-                            <div className="login-signup">
-                                <a href="/login" className="login">Log in</a>
-                                <a href="/signup" className="signup">Sign Up</a>
-                            </div>
-                        ))}
+                        </div>
+                    ) : (
+                        // Hiển thị nếu người dùng chưa đăng nhập
+                        <div className="login-signup">
+                            <Link to="/login" className="login">Log in</Link>
+                            <Link to="/signup" className="signup">Sign Up</Link>
+                        </div>
+                    )}
                 </div>
+
             </div>
             <div
                 ref={contentDropdownRef}
