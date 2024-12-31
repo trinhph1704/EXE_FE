@@ -3,14 +3,14 @@ import "./../ProfilePage/ProfilePage.css";
 
 import Header from "../../../Components/Items/Header/Header";
 import Footer from "../../../Components/Items/Footer/Footer";
-import Profile from "../../../Components/User/Profile/Profile";
+import UserProfile from "../../../Components/User/Profile/UserProfile";
 
 export default function ProfilePage() {
     return (
         <div id="ProfilePage">
             <Header />
             <main className="ProfilePage-Container">
-                <Profile />
+                <UserProfile />
             </main>
             <Footer />
         </div>

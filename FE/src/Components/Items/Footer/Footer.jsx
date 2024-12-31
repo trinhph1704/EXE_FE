@@ -1,74 +1,123 @@
 import React from "react";
-import './Footer.css'
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import "./Footer.css"; 
 
-import LogoNSHOP from "../../../assets/Logo NSHOP.png";
-
-import { FaYoutube } from "react-icons/fa";
-import { IoLogoFacebook } from "react-icons/io";
-import { AiFillTikTok } from "react-icons/ai";
-import { IoLogoGithub } from "react-icons/io";
-
-export default function Footer() {
-    return (
-        <div id="footer">
-            <div className="footer-content">
-                <div className="logo-contact">
-                    <div className="logo-title">
-                        <img src={LogoNSHOP} alt="" className="logo" />
-                        <span>NSHOP</span>
-                    </div>
-                    <div className="description">
-                        <span>Phone: 0707911476</span>
-                        <span>Email: hunglcse161248@fpt.edu.vn</span>
-                        <span>Address: 6th Floor, OneHub Saigon, High-Tech Park, Tan Phu Ward, District 9, Ho Chi Minh City</span>
-                    </div>
-                </div>
-                <div className="about block">
-                    <p className="title">About CodeCourse</p>
-                    <div className="description">
-                        <p>About Us</p>
-                        <p>Privacy Policy</p>
-                        <p>Terms of Use</p>
-                        <p>Cookie Policy</p>
-                    </div>
-                </div>
-                <div className="product block">
-                    <p className="title">Product</p>
-                    <div className="description">
-                        <p>Arduino Board</p>
-                        <p>Kit DIY</p>
-                    </div>
-                </div>
-                <div className="community block">
-                    <p className="title">Community</p>
-                    <div className="description">
-                        <a href="https://www.youtube.com/@hunghy_0852" target="_blank" rel="noopener noreferrer">
-                            <FaYoutube />
-                            <span>Youtube</span>
-                        </a>
-                        <a href="https://www.facebook.com/hunghyyy0852/" target="_blank" rel="noopener noreferrer">
-                            <IoLogoFacebook />
-                            <span>Facebook</span>
-                        </a>
-                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&autoplay=1" target="_blank" rel="noopener noreferrer">
-                            <AiFillTikTok />
-                            <span>Tiktok</span>
-                        </a>
-                        <a href="https://github.com/HungHy1602" target="_blank" rel="noopener noreferrer">
-                            <IoLogoGithub />
-                            <span>GitHub</span>
-                        </a>
-                    </div>
-                </div>
-                <div className="account block">
-                    <p className="title">Account</p>
-                    <div className="description">
-                        <p>Create Account?</p>
-                        <p>Log In</p>
-                    </div>
-                </div>
-            </div>
-            <div className="slogan">NSHOP : Customer Satisfaction Is Gold</div>
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="footer-container">
+        {/* Left Section */}
+        <div className="footer-section">
+          <h2 className="footer-logo">Colordanhub</h2>
+          <p className="footer-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <button className="playstore-button">
+            <svg
+              height="20px"
+              width="20px"
+             
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 511.999 511.999"
+            >
+              <g>
+                <path
+                  style={{ fill: "#32BBFF" }}
+                  d="M382.369,175.623C322.891,142.356,227.427,88.937,79.355,6.028
+                    C69.372-0.565,57.886-1.429,47.962,1.93l254.05,254.05L382.369,175.623z"
+                />
+                <path
+                  style={{ fill: "#32BBFF" }}
+                  d="M47.962,1.93c-1.86,0.63-3.67,1.39-5.401,2.308C31.602,10.166,23.549,21.573,23.549,36v439.96
+                    c0,14.427,8.052,25.834,19.012,31.761c1.728,0.917,3.537,1.68,5.395,2.314L302.012,255.98L47.962,1.93z"
+                />
+                <path
+                  style={{ fill: "#32BBFF" }}
+                  d="M302.012,255.98L47.956,510.035c9.927,3.384,21.413,2.586,31.399-4.103
+                    c143.598-80.41,237.986-133.196,298.152-166.746c1.675-0.941,3.316-1.861,4.938-2.772L302.012,255.98z"
+                />
+              </g>
+              <path
+                style={{ fill: "#2C9FD9" }}
+                d="M23.549,255.98v219.98c0,14.427,8.052,25.834,19.012,31.761c1.728,0.917,3.537,1.68,5.395,2.314
+                  L302.012,255.98H23.549z"
+              />
+              <path
+                style={{ fill: "#29CC5E" }}
+                d="M79.355,6.028C67.5-1.8,53.52-1.577,42.561,4.239l255.595,255.596l84.212-84.212
+                  C322.891,142.356,227.427,88.937,79.355,6.028z"
+              />
+              <path
+                style={{ fill: "#D93F21" }}
+                d="M298.158,252.126L42.561,507.721c10.96,5.815,24.939,6.151,36.794-1.789
+                  c143.598-80.41,237.986-133.196,298.152-166.746c1.675-0.941,3.316-1.861,4.938-2.772L298.158,252.126z"
+              />
+              <path
+                style={{ fill: "#FFD500" }}
+                d="M488.45,255.98c0-12.19-6.151-24.492-18.342-31.314c0,0-22.799-12.721-92.682-51.809l-83.123,83.123
+                  l83.204,83.205c69.116-38.807,92.6-51.892,92.6-51.892C482.299,280.472,488.45,268.17,488.45,255.98z"
+              />
+              <path
+                style={{ fill: "#FFAA00" }}
+                d="M470.108,287.294c12.191-6.822,18.342-19.124,18.342-31.314H294.303l83.204,83.205
+                  C446.624,300.379,470.108,287.294,470.108,287.294z"
+              />
+            </svg>
+            PlayStore
+          </button>
         </div>
-    )
-}
+
+        {/* Middle Sections */}
+        <div className="footer-section">
+          <h3 className="footer-title">COMPANY</h3>
+          <ul>
+            <li>About Us</li>
+            <li>Legal Information</li>
+            <li>Contact us</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+        <div className="footer-section">
+          <h3 className="footer-title">HELP CENTER</h3>
+          <ul>
+            <li>Find a Property</li>
+            <li>How To Host?</li>
+            <li>Why Us?</li>
+            <li>FAQs</li>
+            <li>Rental Guides</li>
+          </ul>
+        </div>
+
+        {/* Right Section */}
+        <div className="footer-section">
+          <h3 className="footer-title">CONTACT INFO</h3>
+          <div className="contact-chua"> 
+            <p>Phone: 1234567890</p>
+            <p>Email: company@email.com</p>
+            <p>Location: 100 Smart Street, LA, USA</p>
+          </div>
+          <div className="social-icons">
+            <FaFacebook style={{ color: "#1877F2", fontSize: "24px", marginLeft: "10px", marginTop:"5px" }} />
+            <FaInstagram style={{ color: "#E4405F", fontSize: "24px", marginLeft: "15px" }} />
+            <FaTwitter style={{ color: "#1DA1F2", fontSize: "24px", marginLeft: "15px" }} />
+            <FaLinkedin style={{ color: "#0A66C2", fontSize: "24px", marginLeft: "15px" }} />
+          </div>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>© 2022 thecreation.design | All rights reserved</p>
+        <p>Created with love by thecreation.design</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

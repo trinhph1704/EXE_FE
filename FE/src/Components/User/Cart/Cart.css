@@ -1,178 +1,270 @@
-#Cart-Container {
-  padding: 20px;
+#Payment .container {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
-  background-color: #f5f7fa; /* Màu nền tổng thể nhẹ nhàng */
-}
-
-#Cart-Container .Cart-Container-01 {
-  background-color: #ffffff; /* Màu trắng cho sự sạch sẽ */
-  border-radius: 10px;
-  margin-bottom: 3%;
-}
-
-#Cart-Container h5 {
-  font-weight: bold;
-  color: #343a40; /* Văn bản với màu xám đậm */
-}
-
-#Cart-Container .mb-4 {
-  margin-bottom: 1.5rem;
-}
-
-#Cart-Container .d-flex {
-  display: flex;
-  align-items: center;
-}
-
-#Cart-Container .quantity-control {
-  margin: 0 10px;
-}
-
-#Cart-Container .quantity-control .fa {
-  font-size: 20px;
-  color: #1f78b4; /* Màu xanh dễ chịu */
-}
-
-#Cart-Container .quantity-control .fa:hover {
-  color: #0056b3; /* Xanh đậm hơn khi hover */
-}
-
-#Cart-Container .quantity-control .fa[style*="color: #ccc"] {
-  cursor: not-allowed;
-}
-
-#Cart-Container .MDBCard {
-  border-radius: 10px;
-}
-
-#Cart-Container .MDBCardBody {
-  border-radius: 10px;
-}
-
-#Cart-Container a {
-  color: #6c757d; /* Màu xám nhạt */
-}
-
-#Cart-Container a:hover {
-  color: #ff4d4d; /* Màu đỏ khi hover */
-}
-
-#Cart-Container a[style*="color: #ccc"] {
-  pointer-events: none;
-}
-
-#Cart-Container .Cart-Container-02 {
-  width: 1350px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-  margin-bottom: 3%;
-}
-
-#Cart-Container .additional-products {
-  text-align: center;
-}
-
-#Cart-Container .additional-products h5 {
-  margin-bottom: 20px;
-}
-
-#Cart-Container .product-row {
-  display: flex;
-  justify-content: flex-start;
-  white-space: nowrap;
-  overflow-x: auto;
-  position: relative;
-  scroll-behavior: smooth;
-}
-
-#Cart-Container .product-card {
-  background-color: #ffffff; /* Đổi thành màu trắng cho sạch sẽ */
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Tăng độ bóng nhẹ */
-  margin: 10px 20px;
-  width: 250px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: inline-block;
-}
-
-#Cart-Container .product-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Bóng đổ rõ hơn khi hover */
-}
-
-#Cart-Container .product-image {
-  border-radius: 10px 10px 0 0;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-#Cart-Container .product-body {
-  padding: 15px;
-}
-
-#Cart-Container .product-name {
-  font-size: 15px;
-  margin-bottom: 10px;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-  color: #343a40; /* Màu xám đậm cho tên sản phẩm */
 }
 
-#Cart-Container .product-description {
-  font-size: 0.875rem;
-    margin-bottom: 10px;
-    color: #6c757d;
-    white-space: nowrap;        /* Không xuống dòng */
-    overflow: hidden;           /* Ẩn phần tràn */
-    text-overflow: ellipsis;    /* Thêm dấu ... khi tràn */
-    max-width: 100%;            /* Đảm bảo nằm trong khung */
+#Payment .progressContainer {
+  background-color: #fff;
+  display: flex;
+  margin-top: 37px;
+  align-items: center;
+  gap: 8px;
+  color: #0d3b66;
+  justify-content: center;
+  flex-wrap: wrap;
+  font: 400 24px Inter, sans-serif;
 }
 
-#Cart-Container .product-price {
-  font-size: 1.125rem;
-  color: #007bff; /* Màu xanh lam cho giá sản phẩm */
-  margin-bottom: 15px;
+#Payment .stepIcon {
+  aspect-ratio: 0.95;
+  object-fit: contain;
+  object-position: center;
+  width: 38px;
+  align-self: stretch;
+  margin: auto 0;
 }
 
-#Cart-Container .add-to-cart {
-  background-color: #28a745; /* Màu xanh lá cây cho nút thêm vào giỏ hàng */
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+#Payment .stepText {
+  align-self: stretch;
+  margin: auto 0;
 }
 
-#Cart-Container .add-to-cart:hover {
-  background-color: #218838; /* Màu xanh đậm hơn khi hover */
+#Payment .stepDivider {
+  aspect-ratio: 12.99;
+  object-fit: contain;
+  object-position: center;
+  width: 209px;
+  align-self: stretch;
+  margin: auto 0;
 }
 
-#Cart-Container .navigation-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
+#Payment .content {
+  align-self: center;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 1139px;
+}
+
+#Payment .grid {
+  gap: 20px;
+  display: flex;
+}
+
+#Payment .column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 33%;
+  margin-left: 0;
+}
+
+#Payment .section {
+  border-radius: 25px;
+  background-color: #dfddde;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 31px 10px;
+  margin-bottom: 50px;
+}
+
+#Payment .sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0d3b66;
+}
+
+#Payment .sectionImage {
+  /* aspect-ratio: 333.33; */
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  border-radius: 17px;
+  align-self: stretch;
+  margin-top: 22px;
+}
+
+#Payment .text {
+  color: #0a0d13;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  margin-top: 25px;
+}
+
+#Payment .formContainer {
+  border-radius: 8px;
+  display: flex;
+  min-height: 460px;
+  flex-direction: column;
+  justify-content: start;
+  margin: 19px -25px 0 0;
   padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 20%;
-  background-color: #6c757d; /* Màu xám cho nút điều hướng */
+  width: 100%;
+}
+
+#Payment .formGroup {
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+  justify-content: start;
+}
+#Payment .formGroupRoom {
+  display: flex;
+  max-width: 100%;
+  width: 250px;
+  flex-direction: column;
+  justify-content: start;
+}
+/* #Payment .formGroupNext {
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+  justify-content: start;
+} */
+
+#Payment .inputLabel {
+  color: #0a0d13;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+#Payment .input {
+  width: 100%;
+  border-radius: 4px;
+  border: 1.5px solid #acacac;
+  background-color: #fff;
+  margin-top: 16px;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #acacac;
+  line-height: 1;
+}
+
+#Payment .row {
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  align-items: start;
+  gap: 18px;
+  margin-bottom: 24px;
+  justify-content: start;
+}
+
+#Payment .submitButton {
+  background-color: #9747ff;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 16px;
   color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 21px 30px;
+  border: none;
+  cursor: pointer;
 }
 
-#Cart-Container .navigation-button.left {
-  left: -20px;
+#Payment .privacyText {
+  color: #acacac;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-top: 23px;
 }
 
-#Cart-Container .navigation-button.right {
-  right: -35px;
+@media (max-width: 991px) {
+  #Payment .content {
+    max-width: 100%;
+  }
+  
+  #Payment .grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  
+  #Payment .column {
+    width: 100%;
+    margin: 40px 0 0;
+  }
+  
+  #Payment .section {
+    margin: 0 5px;
+  }
+  
+  #Payment .sectionTitle {
+    margin-left: 9px;
+  }
+  
+  #Payment .text {
+    margin-left: 9px;
+  }
+  
+  #Payment .formContainer {
+    padding: 0 20px;
+  }
+  
+  #Payment .submitButton {
+    padding: 20px;
+  }
 }
 
-#Cart-Container .navigation-button:hover {
-  background-color: rgba(191, 182, 182, 0.7); /* Màu xám nhạt hơn khi hover */
+#Payment .roomInfoSection {
+  display: flex;
+  margin-top: 40px;
+}
+
+#Payment .columnLeft,
+#Payment .columnRight {
+  width: 48%; /* Tạo 2 cột có độ rộng gần như nhau */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#Payment .columnLeft .inputLabel,
+#Payment .columnRight .inputLabel {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0a0d13;
+  margin-bottom: 8px;
+}
+#Payment .input4 {
+  width: 100%;
+  border-radius: 4px;
+  border: 1.5px solid #acacac;
+  background-color: #fff;
+  padding: 12px 16px 60px 10px;
+  font-size: 16px;
+  color: #acacac;
+  margin-top: 10px;
+  height: 110px;
+}
+
+#Payment .columnLeft .input,
+#Payment .columnRight .input {
+  margin-top: 10px;
+}
+#Payment .nextButton {
+  background-color: #9747ff;
+  width: 50%;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 21px 30px;
+  border: none;
+  cursor: pointer;
+  margin-top: 35px;
+  margin-left: 190px;
 }

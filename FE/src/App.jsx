@@ -7,8 +7,17 @@ import ItemDetails from './Components/User/ItemDetails/ItemDetails';
 import NotFound from './pages/NotFound/NotFound';
 import ProfilePage from './pages/UserPage/ProfilePage/ProfilePage';
 import CartPage from './pages/UserPage/CartPage/CartPage';
-import AdminPage from './pages/AdminPage/AdminPage';
 import SucessPage from './pages/SucessPage/SucessPage';
+import Signup from './pages/SignUp/SignUp';
+import CoursePage from './pages/CoursePage/CoursePage';
+import StudioPage from './pages/StudioPage/StudioPage';
+import StudioInforPage from './pages/StudioInforPage/StudioInforPage';
+import OrderPage1 from './pages/UserPage/OrderPage/OrderPage1';
+import StudioBookingManagerPage from './pages/UserPage/StudioBookingManagerPage/StudioBookingManagerPage';
+import EditStudioPage from './pages/UserPage/EditStudioPage/EditStudioPage';
+import AdminManagerPage from './pages/AdminManagerPage/AdminManagerPage';
+import RevenuePage1 from './pages/UserPage/RevenuePage/RevenuePage1';
+import UpdateuserPage1 from './pages/UserPage/UpdateuserPage1/UpdateuserPage1';
 
 function App() {
   return (
@@ -20,8 +29,12 @@ function App() {
         {/* Trang Login */}
         <Route path="/Login" element={<Login />} />
 
+        <Route path="/Signup" element={<Signup />} />
+
         {/* Trang Home */}
         <Route path="/Home" element={<HomePage />} />
+
+        <Route path="/Course" element={<CoursePage />} />
 
         {/* Trang danh sách sản phẩm */}
         <Route path="/Product" element={<ListItemPage />} />
@@ -39,10 +52,23 @@ function App() {
         <Route path="/Cart" element={<CartPage />} />
 
         {/* Trang Admin */}
-        <Route path="/Admin" element={<AdminPage />} />
+        
 
         {/* Trang checkSucess */}
         <Route path="/checkout-success" element={<SucessPage />} />
+
+        <Route path="/Studio" element={<StudioPage />} />
+
+        <Route path="/StudioInfor/:id" element={<StudioInforPage />} />
+
+        
+<Route path="/order/:orderId" element={<OrderPage1 />} />
+<Route path="/bookingmanager" element={<StudioBookingManagerPage />} />
+<Route path="/editstu" element={<EditStudioPage />} />
+<Route path="/adminmanager" element={<AdminManagerPage />} />
+<Route path="/revenue" element={<RevenuePage1 />} />
+<Route path="/updateuser" element={<UpdateuserPage1 />} />
+{/* <Route path="/hometro" element={<HomeTro />} /> */}
       </Routes>
     </>
   );

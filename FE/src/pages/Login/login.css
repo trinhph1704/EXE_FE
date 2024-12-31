@@ -1,183 +1,195 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
+/* Reset basic styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
 }
 
-#LoginPage {
+/* Layout and positioning */
+#Login {
+  font-family: Arial, sans-serif;
+  
+}
+
+/* Hero Section */
+#Login .hero-wrap {
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background-image: url("/SWD392_FE/fe/src/assets/Arduino.jpg");
-  /* background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c424bbb0-a0e6-4a95-b422-56f707c6e172/dg7c28l-81258807-0f9b-4d7a-9185-738d000d03bc.jpg/v1/fill/w_1024,h_683,q_75,strp/nature_background_image__cartoon_style_by_gabimedia_dg7c28l-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0MjRiYmIwLWEwZTYtNGE5NS1iNDIyLTU2ZjcwN2M2ZTE3MlwvZGc3YzI4bC04MTI1ODgwNy0wZjliLTRkN2EtOTE4NS03MzhkMDAwZDAzYmMuanBnIiwiaGVpZ2h0IjoiPD02ODMiLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC9jNDI0YmJiMC1hMGU2LTRhOTUtYjQyMi01NmY3MDdjNmUxNzJcL2dhYmltZWRpYS00LnBuZyIsIm9wYWNpdHkiOjk1LCJwcm9wb3J0aW9ucyI6MC40NSwiZ3Jhdml0eSI6ImNlbnRlciJ9fQ.kf5hpIk-dl_s0smKLMpeG5X0KWNKxELM8VHQRpAKqgk"); */
+  align-items: center;
+  background: url('../../../public/Product/35.png') no-repeat center center;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  padding: 0 0.6rem;
-  background-size: 55%; /* hoặc một kích thước cụ thể như 300px 200px */
-}
-
-#LoginPage .login-container {
-  width: 400px;
-  margin: 0 auto;
-  border-radius: 0.5rem;
-  padding: 2rem 1.5rem;
-  background: rgba(255, 255, 255, 0.9); /* Added slight transparency */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-#LoginPage .form-title {
+  min-height: 100vh;
+  color: white;
   text-align: center;
-  font-size: 1.37rem;
-  font-weight: 600;
-  margin-bottom: 1.87rem;
+  position: relative;
 }
 
-#LoginPage .social-login {
-  display: flex;
-  gap: 1.31rem;
+#Login .hero-content {
+  position: absolute;
+  z-index: 10;
 }
 
-#LoginPage .social-button {
-  display: flex;
+#Login .container {
   width: 100%;
-  height: 55px; /* Set a specific height */
-  gap: 0.5rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 0.5rem;
-  align-items: center;
-  border-radius: 0.25rem;
+  max-width: 800px;
+  padding: 20px;
+  margin: auto;
+}
+
+#Login .row {
+  display: flex;
   justify-content: center;
-  background: #f9f8ff;
-  border: 1px solid #d5cbff;
-  transition: 0.3s ease;
 }
 
-#LoginPage .social-button:hover {
-  background: #f1eff9;
-  border-color: #5f41e4;
+#Login .col {
+  width: 100%;
+  max-width: 450px;
 }
 
-#LoginPage .separator {
-  margin: 1.5rem 0;
+#Login .logo img {
+  max-width: 150px;
+  margin: 20px 0;
+}
+
+#Login h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+#Login p {
+  font-size: 16px;
+  margin-bottom: 20px;
   text-align: center;
-  position: relative;
+  color: black;
 }
 
-#LoginPage .separator span {
-  background: #fff;
-  z-index: 1;
-  padding: 0 0.5rem;
-  font-size: 1.06rem;
-  font-weight: 500;
-  position: relative;
+#Login .qr-code {
+  max-width: 200px;
+  margin: 20px auto;
+}
+/* #Login .login-container {
+ display: flex;
+} */
+
+
+/* Login Form styles */
+#Login .login-form {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: -100px; /* This makes the login form appear slightly over the Hero section */
+  position: fixed;
+  right: 100px;
+  top: 200px;
+  width: 35%;
+  
 }
 
-#LoginPage .separator::before,
-#LoginPage .separator::after {
-  position: absolute;
-  content: "";
-  top: 50%;
-  width: 100%;
-  height: 1px;
-  background: #bfb3f2;
+#Login h3 {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #9c74cf;
 }
 
-#LoginPage .separator::before {
-  left: 0;
+#Login .input-group {
+  margin-bottom: 20px;
+  display: flex;
+    flex-direction: column;
 }
 
-#LoginPage .separator::after {
-  right: 0;
-  width: calc(100% - 2rem);
-}
-
-#LoginPage .login-form {
-  width: 100%;
-}
-
-.input-wrapper {
-  position: relative;
-  margin-bottom: 1.5rem;
-}
-
-.input-field {
-  height: 54px;
-  width: 100%;
-  outline: none;
-  font-size: 1.06rem;
-  border-radius: 0.31rem;
-  border: 1px solid #bfb3f2;
-  padding: 0 1.25rem 0 3.12rem;
-  transition: border-color 0.3s ease;
-}
-
-.input-field:focus {
-  border-color: #5f41e4;
-}
-
-.input-wrapper i {
-  color: #a395e0;
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-#LoginPage .forgot-password-link {
+#Login .input-group label {
   display: block;
-  text-align: center;
-  margin: 1rem 0;
-  color: #5f41e4;
-  font-size: 0.9rem;
-  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-#LoginPage.forgot-password-link:hover {
-  text-decoration: underline;
-}
-
-#LoginPage .signup-text {
-  text-align: center;
-  margin-top: 1.5rem;
-}
-
-#LoginPage .signup-text a {
-  color: #5f41e4;
-  text-decoration: none;
-}
-
-#LoginPage.signup-text a:hover {
-  text-decoration: underline;
-}
-
-#LoginPage .login-button {
+#Login .input-group input {
   width: 100%;
-  height: 54px;
-  background: #5f41e4;
-  color: #fff;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+#Login .remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#Login .remember-me input {
+  margin-right: 10px;
+}
+
+#Login button {
+  width: 100%;
+  padding: 12px;
+  background-color: #9747FF;
+  color: white;
+  font-size: 16px;
   border: none;
-  border-radius: 0.31rem;
-  font-size: 1rem;
-  font-weight: 500;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  margin-bottom: 20px;
 }
 
-#LoginPage .login-button:hover {
-  background: #4d36b6;
+#Login button:hover {
+  background-color: #555;
 }
 
-#LoginPage .error-message {
-  color: red;
-  margin-top: 10px;
-  margin-left: 30px;
+/* Social login buttons */
+#Login .social-login {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+#Login .social-login button {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  margin: 0 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#Login .facebook-btn {
+  background-color: #3b5998;
+  color: white;
+}
+
+#Login .google-btn {
+  background-color: #db4437;
+  color: white;
+}
+
+#Login .twitter-btn {
+  background-color: #1da1f2;
+  color: white;
+}
+
+#Login .social-login button:hover {
+  opacity: 0.8;
+}
+#Login .muted {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 1 rem;
+  color: #6c757d;
+}
+#Login .mutee {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+#Login .flex-grow-1{
+  flex-grow: 1;
+  border: none;
+  border-top: 1px solid #ccc; 
 }

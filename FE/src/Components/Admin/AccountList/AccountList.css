@@ -1,79 +1,79 @@
 #AccountList {
     margin: 50px 50px 0 290px;
-}
-
-#AccountList .accounts-container {
+  }
+  
+  #AccountList .accounts-container {
     max-width: 1000px;
     margin: auto;
     padding: 20px;
     background-color: #f8f9fa;
-}
-
-#AccountList .accounts-header {
+  }
+  
+  #AccountList .accounts-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-}
-
-#AccountList .header-actions {
+  }
+  
+  #AccountList .header-actions {
     display: flex;
     align-items: center;
-}
-
-#AccountList .add-account-btn {
+  }
+  
+  #AccountList .add-account-btn {
     background-color: #007bff;
     color: white;
     border: none;
     padding: 8px 16px;
     margin-right: 10px;
     cursor: pointer;
-}
-
-#AccountList .view-toggle-btn {
+  }
+  
+  #AccountList .view-toggle-btn {
     background-color: transparent;
     border: none;
     font-size: 24px;
     cursor: pointer;
     margin-right: 10px;
-}
-
-#AccountList .accounts-table {
+  }
+  
+  #AccountList .accounts-table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-#AccountList .accounts-table th,
-#AccountList .accounts-table td {
+  }
+  
+  #AccountList .accounts-table th,
+  #AccountList .accounts-table td {
     padding: 20px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
-
-#AccountList .accounts-table th {
+  }
+  
+  #AccountList .accounts-table th {
     background-color: #f1f1f1;
-}
-
-#AccountList .edit-btn {
+  }
+  
+  #AccountList .edit-btn {
     color: #007bff;
     border: 1px solid #007bff;
     background-color: transparent;
     padding: 4px 10px;
     margin-right: 5px;
     cursor: pointer;
-}
-
-#AccountList .delete-btn {
+  }
+  
+  #AccountList .delete-btn {
     color: #dc3545;
     border: 1px solid #dc3545;
     background-color: transparent;
     padding: 4px 10px;
     cursor: pointer;
-}
-
-#AccountList .modal-overlay {
+  }
+  
+  #AccountList .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -84,21 +84,21 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-}
-
-#AccountList .modal-content {
+  }
+  
+  #AccountList .modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 400px;
-}
-
-#AccountList .modal-content h3 {
+  }
+  
+  #AccountList .modal-content h3 {
     margin-bottom: 20px;
-}
-
-#AccountList .modal-content input {
+  }
+  
+  #AccountList .modal-content input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -106,9 +106,9 @@
     border-radius: 4px;
     background-color: white;
     color: black;
-}
-
-#AccountList .modal-content button {
+  }
+  
+  #AccountList .modal-content button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -116,40 +116,40 @@
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
-}
-
-#AccountList .modal-content button:hover {
+  }
+  
+  #AccountList .modal-content button:hover {
     background-color: #0056b3;
-}
-
-#AccountList .modal-content button:last-child {
+  }
+  
+  #AccountList .modal-content button:last-child {
     background-color: transparent;
     color: #dc3545;
     border: none;
-}
-
-#AccountList .modal-content button:last-child:hover {
+  }
+  
+  #AccountList .modal-content button:last-child:hover {
     color: darkred;
-}
-
-#AccountList .lock-btn {
+  }
+  
+  #AccountList .lock-btn {
     margin-left: 5px;
     color: #ffc107;
     border: 1px solid #ffc107;
     background-color: transparent;
     padding: 4px 10px;
     cursor: pointer;
-}
-
-#AccountList .accounts-header .header-actions .search-input {
+  }
+  
+  #AccountList .accounts-header .header-actions .search-input {
     background-color: white;
     color: black;
     border-radius: 10px;
     width: 350px;
     height: 44px;
-}
-
-#AccountList .modal-content {
+  }
+  
+  #AccountList .modal-content {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
@@ -157,15 +157,15 @@
     width: 600px;
     max-width: 90%;
     min-height: 350px;
-}
-
-#AccountList .modal-content h3 {
+  }
+  
+  #AccountList .modal-content h3 {
     margin-bottom: 20px;
     text-align: center;
     font-size: 24px;
-}
-
-#AccountList .modal-content input {
+  }
+  
+  #AccountList .modal-content input {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -174,14 +174,14 @@
     background-color: #f9f9f9;
     color: black;
     font-size: 16px;
-}
-
-#AccountList .modal-content .button-container {
+  }
+  
+  #AccountList .modal-content .button-container {
     display: flex;
     justify-content: space-around;
-}
-
-#AccountList .modal-content button {
+  }
+  
+  #AccountList .modal-content button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -189,39 +189,39 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-}
-
-#AccountList .modal-content button:hover {
+  }
+  
+  #AccountList .modal-content button:hover {
     background-color: #0056b3;
-}
-
-#AccountList .modal-content button:last-child {
+  }
+  
+  #AccountList .modal-content button:last-child {
     background-color: transparent;
     color: #dc3545;
     border: none;
-}
-
-#AccountList .modal-content button:last-child:hover {
+  }
+  
+  #AccountList .modal-content button:last-child:hover {
     color: darkred;
-}
-
-#AccountList .modal-overlay .modal-content .input-group .name {
+  }
+  
+  #AccountList .modal-overlay .modal-content .input-group .name {
     padding: 10px 45px 0 0;
-}
-
-#AccountList .modal-overlay .modal-content .input-group .email {
+  }
+  
+  #AccountList .modal-overlay .modal-content .input-group .email {
     padding: 10px 49px 0 0;
-}
-
-#AccountList .modal-overlay .modal-content .input-group .location {
+  }
+  
+  #AccountList .modal-overlay .modal-content .input-group .location {
     padding: 10px 25px 0 0;
-}
-
-#AccountList .modal-overlay .modal-content .input-group .phone {
+  }
+  
+  #AccountList .modal-overlay .modal-content .input-group .phone {
     padding: 10px 42px 0 0;
-}
-
-#AccountList .search-input {
+  }
+  
+  #AccountList .search-input {
     padding: 10px;
     border: 2px solid #007bff;
     border-radius: 4px;
@@ -229,15 +229,15 @@
     color: #333;
     transition: border-color 0.3s ease;
     width: 300px;
-}
-
-#AccountList .search-input:focus {
+  }
+  
+  #AccountList .search-input:focus {
     border-color: #0056b3;
     outline: none;
     background-color: #fff;
-}
-
-#AccountList .modal-overlay .modal-content .button-container .btn-cancel {
+  }
+  
+  #AccountList .modal-overlay .modal-content .button-container .btn-cancel {
     border: 1px solid red;
     padding: 12px 20px;
     border-radius: 4px;
@@ -245,14 +245,14 @@
     font-size: 16px;
     width: 50%;
     margin-top: 20px;
-}
-
-#AccountList .modal-overlay .modal-content .button-container .btn-cancel:hover {
+  }
+  
+  #AccountList .modal-overlay .modal-content .button-container .btn-cancel:hover {
     border: 1px solid red;
     background-color: rgb(235, 120, 120);
-}
-
-#AccountList .modal-overlay .modal-content .button-container .btn-add {
+  }
+  
+  #AccountList .modal-overlay .modal-content .button-container .btn-add {
     background-color: #007bff;
     color: white;
     border: none;
@@ -262,8 +262,16 @@
     font-size: 16px;
     width: 50%;
     margin-top: 20px;
-}
-
-#AccountList .modal-overlay .modal-content .button-container .btn-add:hover {
+  }
+  
+  #AccountList .modal-overlay .modal-content .button-container .btn-add:hover {
     background-color: #1161b6;
-}
+  }
+  
+  #AccountList td.address {
+    word-wrap: break-word;
+    white-space: normal; /* Cho phép văn bản xuống dòng nếu cần */
+    max-width: 200px; /* Điều chỉnh độ rộng tối đa */
+    padding: 8px; /* Thêm khoảng cách cho dễ nhìn */
+  }
+  

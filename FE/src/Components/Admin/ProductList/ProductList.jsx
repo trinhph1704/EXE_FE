@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './ProductList.css';
@@ -12,22 +12,37 @@ import P7 from '../../../assets/Product/7.jpg';
 import P8 from '../../../assets/Product/8.jpg';
 
 const ProductList = () => {
-    const [items, setItems] = useState([
-        { id: 1, image: P1, name: 'Mạch đảo chiều động cơ từ xa', quantity: 10, price: 560000, description: "Combo xe điều khiển từ xa có camera giám sát là combo do chính NSHOP biên soạn, thường được sử dụng để học tập, nghiên cứu, giải trí…v…v. Kết hợp với module ESP32-Camera, chúng ta có thể điều khiển thông qua wifi đang sử dụng bằng website thông qua địa chỉ IP và không cần phải theo dõi khi điều khiển như combo dùng bluetooth vì đã được tích hợp thêm camera có thể giám sát qua màn hình và điều khiển đi bất kì đâu. Lưu ý: combo này là tự ráp, quý khách chỉ cần đấu nối và nạp code theo đúng sơ đồ là chạy, quý khách có thể chỉnh sửa lại code để tối ưu hơn." },
-        { id: 2, image: P2, name: 'Mạch Raspberry Pi 4', quantity: 12, price: 1000000, description: "Raspberry Pi 4 Model B." },
-        { id: 3, image: P3, name: 'Mạch sạc pin lithium 12V', quantity: 20, price: 75000, description: "Dùng cho ắc quy xe đạp điện" },
-        { id: 4, image: P4, name: 'Mạch Arduino Nano', quantity: 10, price: 80000, description: "Mạch điều khiển Arduino Nano" },
-        { id: 5, image: P5, name: 'Mạch sạc và bảo vệ pin 3S 20A', quantity: 13, price: 58000, description: "Bảo vệ pin Lithium-ion" },
-        { id: 6, image: P6, name: 'Module nguồn AC-DC 100W', quantity: 10, price: 154000, description: "Ngõ ra 24V 4A và 5V 1A" },
-        { id: 7, image: P7, name: 'Bộ điều khiển LM8-RRD', quantity: 27, price: 2021000, description: "Điều khiển số đọc cảm biến" },
-        { id: 8, image: P8, name: 'Mạch tăng áp 1500W', quantity: 10, price: 359000, description: "Module BOOST 1500W" },
-    ]);
+    
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [currentItem, setCurrentItem] = useState(null);
-    const [newItem, setNewItem] = useState({ image: '', name: '', quantity: '', price: '', description: '' });
+    const [newItem, setNewItem] = useState({ image: '', title: '', quantity: '', price: '', description: '' });
     const [searchTerm, setSearchTerm] = useState('');
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/products")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json(); // Chuyển đổi dữ liệu từ response thành JSON
+            })
+            .then((data) => {
+                setProducts(data); // Cập nhật danh sách sản phẩm
+                setLoading(false);  // Đánh dấu dữ liệu đã được tải xong
+            })
+            .catch((error) => {
+                console.error("Error fetching products:", error);
+                setError(error);  // Cập nhật lỗi nếu có
+                setLoading(false); // Đánh dấu kết thúc tải dù có lỗi
+            });
+    }, []); // Chạy một lần khi component render lần đầu
+
+    
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -61,8 +76,8 @@ const ProductList = () => {
     const handleAddItem = () => {
         if (!validateItem()) return;
 
-        const newId = items.length ? items[items.length - 1].id + 1 : 1;
-        setItems([...items, { ...newItem, id: newId, locked: false, price: Number(newItem.price) }]);
+        const newId = products.length ? products[products.length - 1].id + 1 : 1;
+        setProducts([...products, { ...newItem, id: newId, locked: false, price: Number(newItem.price) }]);
         toast.success('Item added successfully!');
         resetForm();
     };
@@ -77,7 +92,7 @@ const ProductList = () => {
     const handleUpdateItem = () => {
         if (!validateItem()) return;
 
-        setItems(items.map(item =>
+        setProducts(products.map(item =>
             item.id === currentItem.id ? { ...newItem, id: currentItem.id, price: Number(newItem.price) } : item
         ));
         toast.success('Item updated successfully!');
@@ -85,7 +100,7 @@ const ProductList = () => {
     };
 
     const handleDeleteItem = (id) => {
-        setItems(items.filter(item => item.id !== id));
+        setProducts(products.filter(item => item.id !== id));
         toast.success('Item deleted successfully!');
     };
 
@@ -101,14 +116,16 @@ const ProductList = () => {
     const resetForm = () => {
         setIsModalOpen(false);
         setIsEditing(false);
-        setNewItem({ image: '', name: '', quantity: '', price: '', description: '' });
+        setNewItem({ image: '', title: '', quantity: '', price: '', description: '' });
         setCurrentItem(null);
         setIsDetailModalOpen(false);
     };
 
-    const filteredItems = items.filter(item =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredItems = products.filter(item =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    
 
     return (
         <div id="ProductList" className="items-container">
@@ -141,7 +158,7 @@ const ProductList = () => {
                         <tr key={item.id}>
                             <td>{index + 1}</td>
                             <td><img src={item.image} alt={item.name} style={{ width: '50px', height: '50px' }} /></td>
-                            <td>{item.name}</td>
+                            <td>{item.title}</td>
                             <td>{item.quantity}</td>
                             <td>{item.price.toLocaleString('vi-VN')} VNĐ</td>
                             <td>
@@ -176,7 +193,7 @@ const ProductList = () => {
                                 id="name"
                                 name="name"
                                 placeholder="Name"
-                                value={newItem.name}
+                                value={newItem.title}
                                 onChange={handleInputChange}
                             />
                         </div>

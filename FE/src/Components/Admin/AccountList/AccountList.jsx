@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './AccountList.css';
 
 const AccountList = () => {
-    const [accounts, setAccounts] = useState([
-        { id: 1, name: 'Minh Lê', email: 'minhle@mail.com', location: 'VN', phone: '09 078 99 100' },
-        { id: 2, name: 'An Nguyễn', email: 'annguyen@mail.com', location: 'VN', phone: '09 078 99 101' },
-        { id: 3, name: 'Hải Trần', email: 'haitran@mail.com', location: 'VN', phone: '09 078 99 102' },
-        { id: 4, name: 'Long Trần', email: 'longtran@mail.com', location: 'VN', phone: '09 078 99 102' },
-        { id: 5, name: 'Minh Phúc', email: 'minhphuc@mail.com', location: 'VN', phone: '09 078 99 102' },
-        { id: 6, name: 'Bảo Phúc', email: 'baophuc@mail.com', location: 'VN', phone: '09 078 99 102' },
-        { id: 7, name: 'Gia Bảo', email: 'giabao@mail.com', location: 'VN', phone: '09 078 99 102' },
-        { id: 8, name: 'Hoàng Trân', email: 'hoangtran@mail.com', location: 'VN', phone: '09 078 99 102' },
-    ]);
+    const [accounts, setAccounts] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [currentAccount, setCurrentAccount] = useState(null);
     const [newAccount, setNewAccount] = useState({ name: '', email: '', location: '', phone: '' });
     const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchAccounts = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/users');
+                const data = await response.json();
+                setAccounts(data);
+                setLoading(false);
+            } catch (error) {
+                toast.error('Failed to fetch data');
+                setLoading(false);
+            }
+        };
+
+        fetchAccounts();
+    }, []);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -35,64 +43,87 @@ const AccountList = () => {
             toast.error('Tên không hợp lệ');
             return false;
         }
-
         if (!phoneRegex.test(phone)) {
-            toast.error('Số điện thoại không hơp lệ');
+            toast.error('Số điện thoại không hợp lệ');
             return false;
         }
-
         if (!emailRegex.test(email)) {
             toast.error('Email không hợp lệ');
             return false;
         }
-
         return true;
     };
 
-    const handleAddAccount = () => {
-        if (!validateAccount()) return;
-
-        const newId = accounts.length ? accounts[accounts.length - 1].id + 1 : 1;
-        setAccounts([...accounts, { ...newAccount, id: newId, locked: false }]);
-        toast.success('Account added successfully!');
-        resetForm();
-    };
-
-    const handleEditAccount = (account) => {
-        setIsEditing(true);
-        setCurrentAccount(account);
-        setNewAccount(account);
-        setIsModalOpen(true);
-    };
-
-    const handleUpdateAccount = () => {
-        if (!validateAccount()) return;
-
-        setAccounts(accounts.map(account =>
-            account.id === currentAccount.id ? { ...newAccount, id: currentAccount.id } : account
-        ));
-        toast.success('Account updated successfully!');
-        resetForm();
-    };
-
-    const handleDeleteAccount = (id) => {
-        setAccounts(accounts.filter(account => account.id !== id));
-        toast.success('Account deleted successfully!');
-    };
-
-    const handleLockAccount = (id) => {
-        setAccounts(accounts.map(account => {
-            if (account.id === id) {
-                const newLockedStatus = !account.locked;
-                toast.success(newLockedStatus ? 'Account banned successfully!' : 'Account unbanned successfully!');
-                return { ...account, locked: newLockedStatus };
+    const handleAction = async (actionType, account) => {
+        if (actionType === 'edit') {
+            setIsEditing(true);
+            setCurrentAccount(account);
+            setNewAccount(account);
+            setIsModalOpen(true);
+        } else if (actionType === 'delete') {
+            try {
+                await fetch(`http://localhost:5000/users/${account.id}`, {
+                    method: 'DELETE',
+                });
+                setAccounts(accounts.filter(acc => acc.id !== account.id));
+                toast.success('Account deleted successfully!');
+            } catch (error) {
+                toast.error('Failed to delete account');
             }
-            return account;
-        }));
+        } else if (actionType === 'ban') {
+            try {
+                const updatedAccount = { ...account, locked: !account.locked };
+                await fetch(`http://localhost:5000/users/${account.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedAccount),
+                });
+                setAccounts(accounts.map(acc => (acc.id === account.id ? updatedAccount : acc)));
+                toast.success(updatedAccount.locked ? 'Account banned successfully!' : 'Account unbanned successfully!');
+            } catch (error) {
+                toast.error('Failed to update account status');
+            }
+        }
     };
 
-    const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value);
+    const handleUpdateAccount = async () => {
+        if (!validateAccount()) return;
+        try {
+            const updatedAccount = { ...newAccount, id: currentAccount.id };
+            await fetch(`http://localhost:5000/users/${currentAccount.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedAccount),
+            });
+            setAccounts(accounts.map(acc => (acc.id === currentAccount.id ? updatedAccount : acc)));
+            toast.success('Account updated successfully!');
+            resetForm();
+        } catch (error) {
+            toast.error('Failed to update account');
+        }
+    };
+
+    const handleAddAccount = async () => {
+        if (!validateAccount()) return;
+        try {
+            const response = await fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newAccount),
+            });
+            const createdAccount = await response.json();
+            setAccounts([...accounts, createdAccount]);
+            toast.success('Account added successfully!');
+            resetForm();
+        } catch (error) {
+            toast.error('Failed to add account');
+        }
     };
 
     const resetForm = () => {
@@ -102,12 +133,18 @@ const AccountList = () => {
         setCurrentAccount(null);
     };
 
-    const filteredAccounts = accounts.filter(account =>
-        account.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        account.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        account.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        account.phone.includes(searchTerm)
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const filteredAccounts = accounts.filter((acc) =>
+        (acc.name?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+        (acc.email?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+        (acc.location?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+        (acc.phone || '').includes(searchTerm)
     );
+
+    if (loading) return <div>Loading...</div>;
 
     return (
         <div id="AccountList" className="accounts-container">
@@ -130,24 +167,24 @@ const AccountList = () => {
                         <th>No</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Location</th>
+                        <th>Adress</th>
                         <th>Phone</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredAccounts.map((account, index) => (
-                        <tr key={account.id}>
+                    {filteredAccounts.map((acc, index) => (
+                        <tr key={acc.id}>
                             <td>{index + 1}</td>
-                            <td>{account.name}</td>
-                            <td>{account.email}</td>
-                            <td>{account.location}</td>
-                            <td>{account.phone}</td>
+                            <td>{acc.name}</td>
+                            <td>{acc.email}</td>
+                            <td className="address">{acc.address}</td>
+                            <td>{acc.phone}</td>
                             <td>
-                                <button className="edit-btn" onClick={() => handleEditAccount(account)}>Edit</button>
-                                <button className="delete-btn" onClick={() => handleDeleteAccount(account.id)}>Delete</button>
-                                <button className="lock-btn" onClick={() => handleLockAccount(account.id)}>
-                                    {account.locked ? "Unban" : "Ban"}
+                                <button className="edit-btn" onClick={() => handleAction('edit', acc)}>Edit</button>
+                                <button className="delete-btn" onClick={() => handleAction('delete', acc)}>Delete</button>
+                                <button className="lock-btn" onClick={() => handleAction('ban', acc)}>
+                                    {acc.locked ? "Unban" : "Ban"}
                                 </button>
                             </td>
                         </tr>
@@ -178,17 +215,6 @@ const AccountList = () => {
                                 name="email"
                                 placeholder="Email"
                                 value={newAccount.email}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <div className="input-group">
-                            <label className='location' htmlFor="location">Location</label>
-                            <input
-                                type="text"
-                                id="location"
-                                name="location"
-                                placeholder="Location"
-                                value={newAccount.location}
                                 onChange={handleInputChange}
                             />
                         </div>
